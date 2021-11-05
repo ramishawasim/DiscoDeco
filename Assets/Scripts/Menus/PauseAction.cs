@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/PauseAction.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Menus/PauseAction.inputactions'
 
 using System;
 using System.Collections;
