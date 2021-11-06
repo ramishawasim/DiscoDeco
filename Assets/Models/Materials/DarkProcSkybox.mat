@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WorldSpaceBrickSample
-  m_Shader: {fileID: -6465566751694194690, guid: 6a002833e64f64347b8a0e42ac8b0ba1, type: 3}
-  m_ShaderKeywords: 
+  m_Name: DarkProcSkybox
+  m_Shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _SUNDISK_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,14 +19,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_14334c73ab15457dafaee218654bb60a:
-        m_Texture: {fileID: 2800000, guid: 6bd8625effe2a494dabb4962e505cee8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_830fdc13387847bea7591c39a3932b36:
-        m_Texture: {fileID: 2800000, guid: 6bd8625effe2a494dabb4962e505cee8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -84,16 +76,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_01e302b0b8aa4c6496759c6ba8f83948: 0.5
-    - Vector1_176f6b4f443444eeaa2de093fd0c4bb7: 1
-    - Vector1_22c2c5de11e246568a50387eeef0b385: 0.5
-    - Vector1_2cfe7d4db0c440599226aac1c164eea3: 0
-    - Vector1_846c623c64204cfdacc9d030622dce5d: 8
-    - Vector1_90d199ba2c6f4afb8b32f0a8cfaf89cc: 0
-    - Vector1_91fc6fed69ae40f194b79d90f8e3bb97: 8
-    - Vector1_d617a624491848fd8813349d992350f2: 1
-    - Vector1_edbdf63f8c8c43a18626854e2f83a01e: 1
     - _AlphaClip: 0
+    - _AtmosphereThickness: 1
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -104,6 +88,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _Exposure: 1.3
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -116,18 +101,21 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _SunDisk: 0
+    - _SunSize: 0
+    - _SunSizeConvergence: 5
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_13a3e103e373437b886800063eed838a: {r: 1, g: 1, b: 1, a: 0}
-    - Color_c4a0065cc53343818bcf4928ca1abc56: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GroundColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SkyTint: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &1402939688504678843
+--- !u!114 &6271433644435084818
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
