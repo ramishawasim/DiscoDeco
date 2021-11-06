@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WorldSpaceBrickSample
-  m_Shader: {fileID: -6465566751694194690, guid: 773f5de4832a7624d8b7209b8220708c, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 6a002833e64f64347b8a0e42ac8b0ba1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -84,7 +84,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_01e302b0b8aa4c6496759c6ba8f83948: 0.5
     - Vector1_176f6b4f443444eeaa2de093fd0c4bb7: 1
+    - Vector1_22c2c5de11e246568a50387eeef0b385: 0.5
+    - Vector1_2cfe7d4db0c440599226aac1c164eea3: 0
+    - Vector1_846c623c64204cfdacc9d030622dce5d: 0
+    - Vector1_90d199ba2c6f4afb8b32f0a8cfaf89cc: 0
+    - Vector1_91fc6fed69ae40f194b79d90f8e3bb97: 0
+    - Vector1_d617a624491848fd8813349d992350f2: 1
+    - Vector1_edbdf63f8c8c43a18626854e2f83a01e: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -112,6 +120,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_13a3e103e373437b886800063eed838a: {r: 1, g: 1, b: 1, a: 0}
+    - Color_c4a0065cc53343818bcf4928ca1abc56: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
