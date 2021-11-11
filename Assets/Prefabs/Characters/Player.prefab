@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementControl: {fileID: -4587934143170127401, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
   jumpControl: {fileID: -3589842511284467399, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
-  playerSpeed: 5
+  playerSpeed: 8
   jumpHeight: 1
   gravityValue: -35
   rotationSpeed: 5
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b693dc3bf608749a76fc936a7d8dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpRadius: 1
   myHands: {fileID: 1257305842557428186}
 --- !u!1 &5342110511274572086
 GameObject:
