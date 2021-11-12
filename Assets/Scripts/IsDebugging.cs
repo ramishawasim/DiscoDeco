@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IsDebug : MonoBehaviour
+public class IsDebugging : MonoBehaviour
 {
-    public bool IsDebugging;
+    public bool IsDebugging1;
 }

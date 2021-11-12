@@ -17,14 +17,14 @@ public class WaypointManager : MonoBehaviour
     public Link[] links;
     public Graph graph;
 
-    private IsDebugging isDebugging;
+    private IsDebug isDebugging;
 
 
     // Start is called before the first frame update
     void Start()
     {
 
-        isDebugging = GameObject.FindGameObjectWithTag("Debug").GetComponent<IsDebugging>();
+        isDebugging = GameObject.FindGameObjectWithTag("Debug").GetComponent<IsDebug>();
 
         graph = new Graph();
 
@@ -47,7 +47,7 @@ public class WaypointManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDebugging.state)
+        if (isDebugging.getState())
         {
             graph.debugDraw();
         }
