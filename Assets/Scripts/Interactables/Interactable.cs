@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     public float interactableRadius = 2.5f;
     public float pickUpRadius = 1;
 
     private GameObject hands;
-    private bool hasItem;
+    private bool hasInteracted;
 
     void Start()
     {
-        hasItem = false;
+        hasInteracted = false;
         hands = GameObject.Find("HoldObjectPosition");
     }
 
     void Update()
     {
-        if (hasItem == false) {
+        if (hasInteracted == false) {
             //Within a specific range, activate interactable glow
             Collider[] interactableColliders = Physics.OverlapSphere(transform.position, interactableRadius);
             foreach (var interactableCollider in interactableColliders)
@@ -29,7 +29,7 @@ public class Interactable : MonoBehaviour
                 }
             }
 
-            //Within a specific range, pick up item
+            //Within a specific range, interact with item
             Collider[] pickUpColliders = Physics.OverlapSphere(transform.position, pickUpRadius);
             foreach (var pickUpCollider in pickUpColliders)
             {
@@ -37,7 +37,7 @@ public class Interactable : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        hasItem = true;
+                        hasInteracted = true;
                     }
                 }
             }
@@ -53,10 +53,11 @@ public class Interactable : MonoBehaviour
         this.GetComponent<Rigidbody>().isKinematic = true;  
         this.GetComponent<BoxCollider>().enabled = false;
         this.transform.position = hands.transform.position;
+        this.transform.parent = hands.transform;
         if (Input.GetKeyDown(KeyCode.E))
         {
             dropObject();
-            hasItem = false;
+            hasInteracted = false;
         }
     }
 
