@@ -5,6 +5,7 @@ using UnityEngine;
 public class MooController : MonoBehaviour
 {
     public GameObject audioOne;
+    public GameObject audioTwo;
 
     private void Start()
     {
@@ -14,9 +15,20 @@ public class MooController : MonoBehaviour
 
     void callMooLogic()
     {
+        int r = Random.Range(0, 3);
+        float rand = Random.Range(3.5f, 7.5f);
+
+        if (r == 0)
+        {
             callMoo();
-            float rand = Random.Range(3.5f, 9f);
-            Invoke("callMooLogic", rand);
+        }
+
+        else
+        {
+            callGrumble();
+        }
+
+        Invoke("callMooLogic", rand);
 
     }
 
@@ -30,5 +42,18 @@ public class MooController : MonoBehaviour
     {
         audioOne.SetActive(false);
     }
+
+    void callGrumble()
+    {
+        audioTwo.SetActive(true);
+        Invoke("endGrumble", 3f);
+    }
+
+    void endGrumble()
+    {
+        audioTwo.SetActive(false);
+    }
+
+
 
 }
