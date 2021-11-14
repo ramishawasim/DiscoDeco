@@ -11,7 +11,7 @@ public class SetInitial : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         //Set duckCount = 0 at start
-        PlayerPrefs.SetFloat("duckCount", 0);
+        PlayerPrefs.SetInt("onHold", 1);
     }
 }
 

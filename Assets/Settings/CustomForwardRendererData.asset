@@ -52,9 +52,11 @@ MonoBehaviour:
   m_Name: CustomForwardRendererData
   m_EditorClassIdentifier: 
   m_RendererFeatures:
+  - {fileID: 8231758646260803573}
+  - {fileID: 2777360335580681174}
   - {fileID: 4163239659893624744}
   - {fileID: -1762185725800343170}
-  m_RendererFeatureMap: a80fc7b269ccc6397e1968396b758be7
+  m_RendererFeatureMap: f5272003e0143d72d6d38b97822a8b26a80fc7b269ccc6397e1968396b758be7
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -83,6 +85,45 @@ MonoBehaviour:
   m_ShadowTransparentReceive: 1
   m_RenderingMode: 0
   m_AccurateGbufferNormals: 0
+--- !u!114 &2777360335580681174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: Cow Infront
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: Cow Infront
+    Event: 300
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 64
+      PassNames: []
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
 --- !u!114 &4163239659893624744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +147,45 @@ MonoBehaviour:
         m_Bits: 8
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 3a2d1ccabc2660640af1f973a091ef03, type: 2}
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 1
+    depthCompareFunction: 5
+    enableWrite: 0
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
+--- !u!114 &8231758646260803573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: Cow Behind
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: Cow Behind
+    Event: 300
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 64
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: 4aaaf0db8e1d5cd4795d9f44b6f1c24d, type: 2}
     overrideMaterialPassIndex: 0
     overrideDepthState: 1
     depthCompareFunction: 5

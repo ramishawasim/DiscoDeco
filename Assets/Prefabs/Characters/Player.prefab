@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569155646186372961}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 1.75, z: 0.3}
+  m_LocalPosition: {x: 0, y: 1.75, z: 0}
   m_LocalScale: {x: 1.3333334, y: 1.3333334, z: 1.3333334}
   m_Children: []
   m_Father: {fileID: 2312009472109098557}
@@ -80,7 +80,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 119
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257305842557428186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0.94, z: 0.65}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 5342110511232830346}
@@ -155,7 +155,6 @@ GameObject:
   - component: {fileID: 5342110511232830344}
   - component: {fileID: 5342110511232830351}
   - component: {fileID: 5342110511232830350}
-  - component: {fileID: 8802211104168537508}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -210,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: -15
+  animator: {fileID: 3322768161755167626}
 --- !u!114 &5342110511232830351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,9 +222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d0efb61c0d4cb4ea41d51f38260f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 3322768161755167626}
   movementControl: {fileID: -4587934143170127401, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
   jumpControl: {fileID: -3589842511284467399, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
-  playerSpeed: 8
+  playerSpeed: 7
   jumpHeight: 1
   gravityValue: -35
   rotationSpeed: 5
@@ -241,20 +242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushPower: 1.75
---- !u!114 &8802211104168537508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5342110511232830349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88b693dc3bf608749a76fc936a7d8dd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickUpRadius: 1
-  myHands: {fileID: 1257305842557428186}
 --- !u!1001 &2855089890832142806
 PrefabInstance:
   m_ObjectHideFlags: 0
