@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private InputActionReference jumpControl;
     [SerializeField]
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 7.0f;
     [SerializeField]
-    private float jumpHeight = 1.0f;
+    private float slowSpeed = 5.0f;
+    // [SerializeField]
+    // private float jumpHeight = 1.0f;
     [SerializeField]
     private float gravityValue = -9.81f;
     [SerializeField]
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private Transform cameraMainTransform;
+    private int isHolding;
 
     private void OnEnable()
     {
@@ -45,6 +48,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        isHolding = PlayerPrefs.GetInt("isHolding");
+        if (isHolding == 1)
+        {
+            playerSpeed = slowSpeed;
+        }
+        else{
+            playerSpeed = playerSpeed;
+        }
+        
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -61,11 +73,11 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        if (jumpControl.action.triggered && groundedPlayer)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            Animate("jump");
-        }
+        // if (jumpControl.action.triggered && groundedPlayer)
+        // {
+        //     playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        //     Animate("jump");
+        // }
 
         if (movement != Vector2.zero) {
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
@@ -81,11 +93,9 @@ public class PlayerController : MonoBehaviour
             case "walk":
                 animator.SetBool("onWalk", true);
                 break;
-
-            case "jump":
-                animator.SetTrigger("onJump");
-                break;
-
+            // case "jump":
+            //     animator.SetTrigger("onJump");
+            //     break;
             case "idle":
                 animator.SetBool("onWalk", false);
                 break;

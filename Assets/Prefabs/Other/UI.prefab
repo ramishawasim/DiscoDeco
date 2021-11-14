@@ -1319,7 +1319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4678189287062862845}
   - component: {fileID: 4678189287062862844}
-  - component: {fileID: 4678189287062862835}
   - component: {fileID: 4678189287062862834}
   m_Layer: 0
   m_Name: GameSetup
@@ -1354,20 +1353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1515532a7f2f345b1692f996220213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4678189287062862835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4678189287062862833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ccd1a90c2505f542a8040085fc8e7ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HorizontalInput: Mouse X
-  VerticalInput: Mouse Y
 --- !u!114 &4678189287062862834
 MonoBehaviour:
   m_ObjectHideFlags: 0

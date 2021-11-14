@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 1.5
+  interactRadius: 1
   interactType: 2
   keypad: {fileID: 0}
   parentDoor: {fileID: 589820571295013480}
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 1.5
+  interactRadius: 1
   interactType: 3
   keypad: {fileID: 0}
   parentDoor: {fileID: 589820571295013480}

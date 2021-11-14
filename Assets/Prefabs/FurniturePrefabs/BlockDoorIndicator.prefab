@@ -157,7 +157,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8179890621774667365, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
       propertyPath: m_Name
-      value: chair
+      value: BlockChair
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179890621774667365, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819120066566772173, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
+      propertyPath: interactType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8849326439885817055, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
       propertyPath: m_RootOrder
