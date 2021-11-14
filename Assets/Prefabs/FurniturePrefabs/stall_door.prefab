@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1678287008867613478, guid: ece351be625924f4e89d76121e84d7e3, type: 3}
+  - {fileID: 2100000, guid: 9d73957326955484aa2626f21ff9f01a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 256580574902989058}
   - component: {fileID: 7599098252557453046}
   - component: {fileID: 1492791023661594477}
+  - component: {fileID: 1710942818468166410}
   m_Layer: 0
   m_Name: door_stall
   m_TagString: Untagged
@@ -173,7 +174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -958436286330991083, guid: ece351be625924f4e89d76121e84d7e3, type: 3}
+  - {fileID: 2100000, guid: bb0f15a3c8ff5564698b6fd7dfdf08b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -195,6 +196,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1710942818468166410
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973483915791740577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -26204797739368153, guid: ece351be625924f4e89d76121e84d7e3, type: 3}
 --- !u!1 &5355599212294864275
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +269,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5321256151530342014, guid: ece351be625924f4e89d76121e84d7e3, type: 3}
+  - {fileID: 2100000, guid: 9d73957326955484aa2626f21ff9f01a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
