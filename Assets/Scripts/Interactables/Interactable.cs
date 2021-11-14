@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -16,6 +17,7 @@ public class Interactable : MonoBehaviour
 
     private GameObject player;
     private GameObject camera;
+    private GameObject doorBlocks;
     // private GameObject hands;
     // private GameObject snap;
 
@@ -26,6 +28,8 @@ public class Interactable : MonoBehaviour
 
     private bool hasInteracted;
     private int isHolding;
+    private int doorIsBlocked;
+    private int notes;
 
     public void Start()
     {
@@ -34,9 +38,10 @@ public class Interactable : MonoBehaviour
         //glow
         glowMaterial = GetComponent<Renderer>().material;
 
-        //for disabling
+        //for enabling/disabling
         player = GameObject.Find("Player");
         camera = GameObject.Find("ThirdPersonCamera");
+        doorBlocks = GameObject.Find("DoorBlocks");
         playerController = player.GetComponent<PlayerController>();
         characterController = player.GetComponent<CharacterController>();
 
@@ -123,14 +128,15 @@ public class Interactable : MonoBehaviour
         // this.transform.position = hands.transform.position;
         // this.transform.parent = hands.transform.parent;
         isHolding = PlayerPrefs.GetInt("isHolding");
-        Debug.Log(isHolding);
-
         if (isHolding == 0)
         {
-            animator.SetBool("onHold", true);
             player.transform.Find("HoldChair").gameObject.SetActive(true);
             PlayerPrefs.SetInt("isHolding", 1);
+            
+            // doorBlocks.gameObject.SetActive(true);
+            animator.SetBool("onHold", true);
             hasInteracted = false;
+            //disable gameobject
             this.gameObject.SetActive(false);
         }
         hasInteracted = false;
@@ -150,15 +156,40 @@ public class Interactable : MonoBehaviour
         //push object into place
         //set door to locked
         // animator.SetTrigger("onPush");
-        PlayerPrefs.SetInt("isHolding", 0);
-        hasInteracted = false;
+        isHolding = PlayerPrefs.GetInt("isHolding");
+        if (isHolding == 1)
+        {
+            this.transform.Find("BlockChair").gameObject.SetActive(true);
+            player.transform.Find("HoldChair").gameObject.SetActive(false);
+            // PlayerPrefs.SetInt("doorIsBlocked", 1);
+            PlayerPrefs.SetInt("isHolding", 0);
+
+            // doorBlocks.gameObject.SetActive(false);
+            animator.SetBool("onHold", false);
+            hasInteracted = false;
+        }
+        else
+        {
+            this.transform.Find("BlockChair").gameObject.SetActive(false);
+            player.transform.Find("HoldChair").gameObject.SetActive(true);
+            // PlayerPrefs.SetInt("doorIsBlocked", 0);
+            PlayerPrefs.SetInt("isHolding", 1);
+
+            // doorBlocks.gameObject.SetActive(true);
+            animator.SetBool("onHold", true);
+            hasInteracted = false;
+        }
     }
 
     void openDoor()
     {
+        // doorIsBlocked = PlayerPrefs.GetInt("doorIsBlocked");
+        // if (doorIsBlocked == 0)
+        // {
         parentDoor.transform.Find("original").gameObject.SetActive(false);
         parentDoor.transform.Find("pivot").gameObject.SetActive(true);
         hasInteracted = false;
+        // }
     }
 
     void closeDoor()
@@ -170,8 +201,11 @@ public class Interactable : MonoBehaviour
 
     void pickUpNote()
     {
-        Debug.Log("paper");
+        notes = PlayerPrefs.GetInt("notes");
+        PlayerPrefs.SetInt("notes", notes+1);
+        Debug.Log("Notes" + (notes+1).ToString());
         hasInteracted = false;
+        this.gameObject.SetActive(false);
     }
 
     void keypadObject()
@@ -194,4 +228,13 @@ public class Interactable : MonoBehaviour
     {
         hasInteracted = false;
     }
+
+    void Victory()
+    {
+        notes = PlayerPrefs.GetInt("notes");
+        if (notes == 3){
+            Debug.Log("Victory");
+        }
+    }
+
 }

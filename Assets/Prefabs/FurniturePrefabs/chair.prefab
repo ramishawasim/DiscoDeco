@@ -114,6 +114,7 @@ MonoBehaviour:
   interactRadius: 1
   interactType: 0
   keypad: {fileID: 0}
+  parentDoor: {fileID: 0}
 --- !u!1 &8179890621774667365
 GameObject:
   m_ObjectHideFlags: 0
