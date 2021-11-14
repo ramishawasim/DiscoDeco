@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public float interactableRadius = 7.5f;
-    public float pickUpRadius = 1;
     public int interactType;
     public GameObject other;
+    private float interactableRadius = 15f;
+    private float pickUpRadius = 2.5f;
 
     private Material glowMaterial;
     private Color glowColour;
@@ -54,8 +54,7 @@ public class Interactable : MonoBehaviour
                 {
                     float dist = Vector3.Distance(player.transform.position, this.transform.position);
                     glowDistance = 1 - (dist / (interactableRadius));
-                    glowMaterial.SetColor("_EmissionColor", new Vector4(glowColour.r,glowColour.g,glowColour.b,0) * glowDistance);
-                    // glowMaterial.SetColor("_EmissionColor", Color.red);
+                    glowMaterial.SetFloat("_DitherAlpha", glowDistance);
                     Debug.Log(glowDistance);
                 }
             }
