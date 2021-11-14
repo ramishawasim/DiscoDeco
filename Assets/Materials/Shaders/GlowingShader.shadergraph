@@ -229,10 +229,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1074.0001220703125,
-            "y": -58.00001907348633,
+            "x": -765.0000610351563,
+            "y": 403.99993896484377,
             "width": 180.0,
-            "height": 34.000003814697269
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -810,10 +810,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1052.0001220703125,
-            "y": 31.99999237060547,
+            "x": -743.0,
+            "y": 494.0000305175781,
             "width": 155.0,
-            "height": 34.000003814697269
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -1037,8 +1037,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -773.0001220703125,
-            "y": -52.9999885559082,
+            "x": -464.0,
+            "y": 408.9999694824219,
             "width": 208.0,
             "height": 302.0
         }
@@ -1075,8 +1075,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1086.0,
-            "y": 348.0,
+            "x": -709.0,
+            "y": 307.0,
             "width": 132.0,
             "height": 34.0
         }
@@ -1107,7 +1107,7 @@
     },
     "m_Name": "EmissionBrightness",
     "m_DefaultReferenceName": "Vector1_f665efff932248379ec14a32ce88fe73",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_EmissionBrightness",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
