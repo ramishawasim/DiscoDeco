@@ -239,8 +239,8 @@ MonoBehaviour:
   animator: {fileID: 3322768161755167626}
   movementControl: {fileID: -4587934143170127401, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
   jumpControl: {fileID: -3589842511284467399, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
-  playerSpeed: 7
-  jumpHeight: 1
+  playerSpeed: 7.5
+  slowSpeed: 5
   gravityValue: -35
   rotationSpeed: 5
 --- !u!114 &5342110511232830350
