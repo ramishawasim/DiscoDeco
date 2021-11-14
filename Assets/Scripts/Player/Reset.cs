@@ -8,11 +8,19 @@ using UnityEngine.SceneManagement;
 public class Reset : MonoBehaviour
 {
     public float threshold = -50f;
+    public Animator animator;
+
+    private void Start()
+    {
+        animator = animator.GetComponent<Animator>();  
+    }
 
     void Update()
     {
         if (transform.position.y < threshold)
         {
+            animator.SetTrigger("onDeath");
+            StartCoroutine(Wait());
             reset();
         }
     }
@@ -21,6 +29,8 @@ public class Reset : MonoBehaviour
     {
         if (player.gameObject.tag == "Enemies")
         {
+            animator.SetTrigger("onDeath");
+            StartCoroutine(Wait());
             reset();
         }
     }
@@ -28,5 +38,10 @@ public class Reset : MonoBehaviour
     void reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(5);
     }
 }

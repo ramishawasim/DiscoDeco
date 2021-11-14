@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    public Animator animator;
+
     [SerializeField]
     private InputActionReference movementControl;
     [SerializeField]
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
+        animator = animator.GetComponent<Animator>();  
     }
 
     void Update()
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
+            Animate("idle");
         }
 
         Vector2 movement = movementControl.action.ReadValue<Vector2>();
@@ -60,12 +64,31 @@ public class PlayerController : MonoBehaviour
         if (jumpControl.action.triggered && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            Animate("jump");
         }
 
         if (movement != Vector2.zero) {
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+            Animate("walk");
+        }
+    }
+
+    public void Animate(string action){
+        switch (action)
+        {
+            case "walk":
+                animator.SetBool("onWalk", true);
+                break;
+
+            case "jump":
+                animator.SetTrigger("onJump");
+                break;
+
+            case "idle":
+                animator.SetBool("onWalk", false);
+                break;
         }
     }
 }
