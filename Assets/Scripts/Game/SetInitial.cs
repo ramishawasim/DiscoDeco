@@ -10,8 +10,8 @@ public class SetInitial : MonoBehaviour
     void Start()
     {
         PlayerPrefs.DeleteAll();
-        //Set duckCount = 0 at start
-        PlayerPrefs.SetInt("onHold", 1);
+        //Set "isHolding" to 1 at start
+        PlayerPrefs.SetInt("isHolding", 0);
     }
 }
 

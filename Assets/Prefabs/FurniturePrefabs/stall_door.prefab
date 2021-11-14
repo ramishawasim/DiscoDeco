@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 7599098252557453046}
   - component: {fileID: 1492791023661594477}
   - component: {fileID: 1710942818468166410}
+  - component: {fileID: 8740128424631965437}
   m_Layer: 0
   m_Name: door_stall
   m_TagString: Untagged
@@ -174,8 +175,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bb0f15a3c8ff5564698b6fd7dfdf08b8, type: 2}
   - {fileID: 2100000, guid: ad3e68a32f4bc754587931588231e90e, type: 2}
+  - {fileID: 2100000, guid: bb0f15a3c8ff5564698b6fd7dfdf08b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,6 +212,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -26204797739368153, guid: ece351be625924f4e89d76121e84d7e3, type: 3}
+--- !u!114 &8740128424631965437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973483915791740577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6543aea411c1afe4cbd667ab9cad2d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableRadius: 10
+  interactRadius: 1.5
+  interactType: 0
+  keypad: {fileID: 0}
+  parentDoor: {fileID: 0}
 --- !u!1 &5355599212294864275
 GameObject:
   m_ObjectHideFlags: 0

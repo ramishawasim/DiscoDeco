@@ -61,8 +61,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ad013c6932e34764bae080a3b135f662, type: 2}
   - {fileID: 2100000, guid: 6547ec592a25d114ab10347055caacbd, type: 2}
+  - {fileID: 2100000, guid: ad013c6932e34764bae080a3b135f662, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 7.5
-  pickUpRadius: 1
+  interactRadius: 1
   interactType: 0
-  other: {fileID: 0}
+  keypad: {fileID: 0}
 --- !u!1 &8179890621774667365
 GameObject:
   m_ObjectHideFlags: 0
