@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569155646186372961}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 1.75, z: 0.3}
+  m_LocalPosition: {x: 0, y: 1.75, z: 0}
   m_LocalScale: {x: 1.3333334, y: 1.3333334, z: 1.3333334}
   m_Children: []
   m_Father: {fileID: 2312009472109098557}
@@ -80,7 +80,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 119
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   animator: {fileID: 3322768161755167626}
   movementControl: {fileID: -4587934143170127401, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
   jumpControl: {fileID: -3589842511284467399, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
-  playerSpeed: 5
+  playerSpeed: 7
   jumpHeight: 1
   gravityValue: -35
   rotationSpeed: 5
