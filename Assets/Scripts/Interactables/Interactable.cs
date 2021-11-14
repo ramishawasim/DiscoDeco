@@ -99,14 +99,14 @@ public class Interactable : MonoBehaviour
     void holdingObject()
     {
         // this.GetComponent<Rigidbody>().isKinematic = true;  
-        this.GetComponent<MeshCollider>().enabled = false;
+        // this.GetComponent<MeshCollider>().enabled = false;
         this.transform.position = hands.transform.position;
         this.transform.parent = hands.transform.parent;
         animator.SetBool("onHold", true);
         if (Input.GetKeyDown(KeyCode.E))
         {
             // this.GetComponent<Rigidbody>().isKinematic = false;  
-            this.GetComponent<MeshCollider>().enabled = true;
+            // this.GetComponent<MeshCollider>().enabled = true;
             this.transform.position = snap.transform.position;
             this.transform.parent = snap.transform.parent;
             animator.SetBool("onHold", false);
