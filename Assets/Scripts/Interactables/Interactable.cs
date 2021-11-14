@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public float interactableRadius = 7.5f;
-    public float pickUpRadius = 1;
+    public float interactableRadius = 10f;
+    public float interactRadius = 1.5f;
     public int interactType;
-    public GameObject other;
+    public GameObject keypad;
+    public GameObject parentDoor;
 
     private Material glowMaterial;
     private Color glowColour;
@@ -15,32 +16,40 @@ public class Interactable : MonoBehaviour
 
     private GameObject player;
     private GameObject camera;
-    private GameObject hands;
-    private GameObject snap;
-    private GameObject keyPad;
-    private GameObject playerAnimator;
+    // private GameObject hands;
+    // private GameObject snap;
 
-    private bool hasInteracted;
+    private GameObject playerAnimator;
     private Animator animator;
     private PlayerController playerController;
     private CharacterController characterController;
 
+    private bool hasInteracted;
+    private int isHolding;
+
     public void Start()
     {
         hasInteracted = false;
+
+        //glow
         glowMaterial = GetComponent<Renderer>().material;
 
+        //for disabling
         player = GameObject.Find("Player");
         camera = GameObject.Find("ThirdPersonCamera");
-
-        hands = GameObject.Find("HoldObjectPosition");
-        snap = GameObject.Find("bench1_pillow1");
-        keyPad = other;
         playerController = player.GetComponent<PlayerController>();
         characterController = player.GetComponent<CharacterController>();
 
+        //for animation
         playerAnimator = GameObject.Find("Suit_Female");
         animator = playerAnimator.GetComponent<Animator>();  
+
+        //objects
+        // hands = GameObject.Find("HoldObjectPosition");
+        // snap = GameObject.Find("bench1_pillow1");
+
+        keypad = keypad;
+        parentDoor = parentDoor;
     }
 
     void Update()
@@ -54,14 +63,12 @@ public class Interactable : MonoBehaviour
                 {
                     float dist = Vector3.Distance(player.transform.position, this.transform.position);
                     glowDistance = 1 - (dist / (interactableRadius));
-                    glowMaterial.SetColor("_EmissionColor", new Vector4(glowColour.r,glowColour.g,glowColour.b,0) * glowDistance);
-                    // glowMaterial.SetColor("_EmissionColor", Color.red);
-                    Debug.Log(glowDistance);
+                    glowMaterial.SetFloat("_DitherAlpha", glowDistance);
                 }
             }
 
             //Within a specific range, interact with item
-            Collider[] pickUpColliders = Physics.OverlapSphere(transform.position, pickUpRadius);
+            Collider[] pickUpColliders = Physics.OverlapSphere(transform.position, interactRadius);
             foreach (var pickUpCollider in pickUpColliders)
             {
                 if (pickUpCollider.tag == "Player")
@@ -79,68 +86,112 @@ public class Interactable : MonoBehaviour
             {
             //pick up object type
             case 0:
-                holdingObject();
+                if (isHolding == 0)
+                pickUpObject();
                 break;
             //block door type
             case 1:
-                pushObject();
+                blockDoor();
+                break;
+            //open door type
+            case 2:
+                openDoor();
+                break;
+            //close door type
+            case 3:
+                closeDoor();
                 break;
             //pick up note type
-            case 2:
+            case 4:
                 pickUpNote();
                 break;
             //keypad object type
-            case 3:
+            case 5:
                 keypadObject();
+                break;
+            //hide type
+            case 6:
+                hide();
                 break;
             }
         }
     }
 
-    void holdingObject()
+    void pickUpObject()
     {
-        // this.GetComponent<Rigidbody>().isKinematic = true;  
-        this.GetComponent<MeshCollider>().enabled = false;
-        this.transform.position = hands.transform.position;
-        this.transform.parent = hands.transform.parent;
-        animator.SetBool("onHold", true);
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            // this.GetComponent<Rigidbody>().isKinematic = false;  
-            this.GetComponent<MeshCollider>().enabled = true;
-            this.transform.position = snap.transform.position;
-            this.transform.parent = snap.transform.parent;
-            animator.SetBool("onHold", false);
-            hasInteracted = false;
-        }
-    }
+        // this.GetComponent<MeshCollider>().enabled = false;
+        // this.transform.position = hands.transform.position;
+        // this.transform.parent = hands.transform.parent;
+        isHolding = PlayerPrefs.GetInt("isHolding");
+        Debug.Log(isHolding);
 
-    void pushObject()
+        if (isHolding == 0)
+        {
+            animator.SetBool("onHold", true);
+            player.transform.Find("HoldChair").gameObject.SetActive(true);
+            PlayerPrefs.SetInt("isHolding", 1);
+            hasInteracted = false;
+            this.gameObject.SetActive(false);
+        }
+        hasInteracted = false;
+
+        // if (Input.GetKeyDown(KeyCode.E))
+        // {
+        //     this.GetComponent<MeshCollider>().enabled = true;
+        //     this.transform.position = snap.transform.position;
+        //     this.transform.parent = snap.transform.parent;
+        //     animator.SetBool("onHold", false);
+        //     hasInteracted = false;
+        // }
+    }
+    
+    void blockDoor()
     {
         //push object into place
         //set door to locked
-        animator.SetTrigger("onPush");
+        // animator.SetTrigger("onPush");
+        PlayerPrefs.SetInt("isHolding", 0);
+        hasInteracted = false;
+    }
+
+    void openDoor()
+    {
+        parentDoor.transform.Find("original").gameObject.SetActive(false);
+        parentDoor.transform.Find("pivot").gameObject.SetActive(true);
+        hasInteracted = false;
+    }
+
+    void closeDoor()
+    {
+        parentDoor.transform.Find("original").gameObject.SetActive(true);
+        parentDoor.transform.Find("pivot").gameObject.SetActive(false);
         hasInteracted = false;
     }
 
     void pickUpNote()
     {
+        Debug.Log("paper");
         hasInteracted = false;
     }
 
     void keypadObject()
     {
-        keyPad.SetActive(true);
+        keypad.SetActive(true);
         camera.SetActive(false);
         playerController.enabled = false;
         characterController.enabled = false;
         if (Input.GetKeyDown(KeyCode.E))
         {
-            keyPad.SetActive(false);
+            keypad.SetActive(false);
             camera.SetActive(true);
             playerController.enabled = true;
             characterController.enabled = true;
             hasInteracted = false;
         }
+    }
+
+    void hide()
+    {
+        hasInteracted = false;
     }
 }
