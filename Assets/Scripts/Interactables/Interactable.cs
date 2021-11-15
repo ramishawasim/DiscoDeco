@@ -94,7 +94,6 @@ public class Interactable : MonoBehaviour
             {
             //pick up object type
             case 0:
-                if (isHolding == 0)
                 pickUpObject();
                 break;
             //block door type
