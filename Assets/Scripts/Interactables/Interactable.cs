@@ -32,6 +32,8 @@ public class Interactable : MonoBehaviour
     public bool doorIsBlocked;
     private int notes;
 
+    private int frames = 0;
+
     public void Start()
     {
         hasInteracted = false;
@@ -60,7 +62,7 @@ public class Interactable : MonoBehaviour
         doorIsBlocked = false;
     }
 
-    void Update()
+    void FrameUpdate()
     {
         if (hasInteracted == false) {
             //Within a specific range, activate interactable glow
@@ -74,7 +76,18 @@ public class Interactable : MonoBehaviour
                     glowMaterial.SetFloat("_DitherAlpha", glowDistance);
                 }
             }
+        }
+    }
 
+    void Update()
+    {
+        frames++;
+        if (frames == 20) { //If the remainder of the current frame divided by 10 is 0 run the function.
+            frames = 0;
+            FrameUpdate();
+        }
+
+        if (hasInteracted == false) {
             //Within a specific range, interact with item
             Collider[] pickUpColliders = Physics.OverlapSphere(transform.position, interactRadius);
             foreach (var pickUpCollider in pickUpColliders)
@@ -141,8 +154,20 @@ public class Interactable : MonoBehaviour
             
             // doorBlocks.gameObject.SetActive(true);
             animator.SetBool("onHold", true);
-
-            parent.transform.Find("chair").gameObject.SetActive(false);
+            try{
+                parent.transform.Find("chair").gameObject.SetActive(false);
+            }
+            catch(Exception e)
+            {
+                Debug.Log("blockChair");
+            }
+            try{
+            parent.transform.Find("blockChair").gameObject.SetActive(false);
+            }
+            catch(Exception e)
+            {
+                Debug.Log("chair");
+            }
             parent.transform.Find("InteractableBase").gameObject.SetActive(true);
 
             hasInteracted = false;
@@ -196,7 +221,7 @@ public class Interactable : MonoBehaviour
 
     void openDoor()
     {
-        if (!doorIsBlocked){
+        if (!doorIsBlocked && !parent.transform.Find("blockChair").gameObject.activeSelf){
             parent.transform.Find("original").gameObject.SetActive(false);
             parent.transform.Find("pivot").gameObject.SetActive(true);
             doorIsClosed = false;

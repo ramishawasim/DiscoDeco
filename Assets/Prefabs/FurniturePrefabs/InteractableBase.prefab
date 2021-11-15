@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 1
+  interactRadius: 0.1
   interactType: 1
   keypad: {fileID: 0}
   parent: {fileID: 0}
+  doorIsBlocked: 0

@@ -239,8 +239,6 @@ MonoBehaviour:
   animator: {fileID: 3322768161755167626}
   movementControl: {fileID: -4587934143170127401, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
   jumpControl: {fileID: -3589842511284467399, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
-  playerSpeed: 6
-  slowSpeed: 5
   gravityValue: -35
   rotationSpeed: 5
 --- !u!114 &5342110511232830350
@@ -346,6 +344,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5928356467479835163, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928356467479835163, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad013c6932e34764bae080a3b135f662, type: 2}
     - target: {fileID: 8179890621774667365, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
       propertyPath: m_Name
       value: HoldChair
