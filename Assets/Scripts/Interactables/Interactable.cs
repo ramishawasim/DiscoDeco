@@ -94,7 +94,6 @@ public class Interactable : MonoBehaviour
             {
             //pick up object type
             case 0:
-                if (isHolding == 0)
                 pickUpObject();
                 break;
             //block door type
@@ -169,6 +168,7 @@ public class Interactable : MonoBehaviour
         if (isHolding == 1 && doorIsClosed && !doorIsBlocked)
         {
             parent.transform.Find("blockChair").gameObject.SetActive(true);
+            parent.transform.Find("InteractableBase").gameObject.SetActive(false);
             parent.transform.Find("original").gameObject.SetActive(true);
             parent.transform.Find("pivot").gameObject.SetActive(false);
 
@@ -182,7 +182,9 @@ public class Interactable : MonoBehaviour
         }
         else
         {
-            parent.transform.Find("block/BlockDoorIndicator/BlockChair").gameObject.SetActive(false);
+            parent.transform.Find("blockChair").gameObject.SetActive(false);
+            parent.transform.Find("InteractableBase").gameObject.SetActive(true);
+
             player.transform.Find("HoldChair").gameObject.SetActive(true);
             PlayerPrefs.SetInt("isHolding", 1);
             doorIsBlocked = false;
