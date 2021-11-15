@@ -7,6 +7,9 @@ TagManager:
   - Enemies
   - Interactable
   - Debug
+  - Waypoint
+  - WaypointManager
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -15,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Cow
-  - 
+  - Walls
   - 
   - 
   - 
