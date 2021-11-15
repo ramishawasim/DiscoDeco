@@ -10,10 +10,11 @@ public class PlayerController : MonoBehaviour
     private InputActionReference movementControl;
     [SerializeField]
     private InputActionReference jumpControl;
-    [SerializeField]
-    private float playerSpeed = 7.0f;
-    [SerializeField]
-    private float slowSpeed = 5.0f;
+    // [SerializeField]
+    private float playerSpeed;
+    // [SerializeField]
+    private float normalSpeed = 7.5f;
+    private float slowSpeed = 4f;
     // [SerializeField]
     // private float jumpHeight = 1.0f;
     [SerializeField]
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
     private Transform cameraMainTransform;
     private int isHolding;
+    private Light flashLight;
 
     private void OnEnable()
     {
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
         animator = animator.GetComponent<Animator>();  
+        flashLight = this.transform.Find("Suit_Female/FlashLight").gameObject.GetComponent<Light>();
     }
 
     void Update()
@@ -52,9 +55,11 @@ public class PlayerController : MonoBehaviour
         if (isHolding == 1)
         {
             playerSpeed = slowSpeed;
+            // flashLight.shadowNearPlane = 0.25f;
         }
         else{
-            playerSpeed = playerSpeed;
+            playerSpeed = normalSpeed;
+            // flashLight.shadowNearPlane = 0.1f;
         }
         
         groundedPlayer = controller.isGrounded;
