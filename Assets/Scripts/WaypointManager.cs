@@ -24,7 +24,7 @@ public class WaypointManager : MonoBehaviour
     void Start()
     {
 
-        isDebugging = GameObject.FindGameObjectWithTag("Debug").GetComponent<IsDebug>();
+        // isDebugging = GameObject.FindGameObjectWithTag("Debug").GetComponent<IsDebug>();
 
         graph = new Graph();
 
@@ -47,9 +47,9 @@ public class WaypointManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDebugging.getState())
-        {
-            graph.debugDraw();
-        }
+        // if (isDebugging.getState())
+        // {
+        graph.debugDraw();
+        // }
     }
 }
