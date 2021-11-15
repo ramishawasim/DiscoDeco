@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour
     public int interactType;
     public GameObject keypad;
     public GameObject parent;
+    public AudioSource sound;
 
     private Material glowMaterial;
     private Color glowColour;
@@ -143,9 +144,6 @@ public class Interactable : MonoBehaviour
 
     void pickUpObject()
     {
-        // this.GetComponent<MeshCollider>().enabled = false;
-        // this.transform.position = hands.transform.position;
-        // this.transform.parent = hands.transform.parent;
         isHolding = PlayerPrefs.GetInt("isHolding");
         if (isHolding == 0)
         {
@@ -173,22 +171,10 @@ public class Interactable : MonoBehaviour
             hasInteracted = false;
         }
         hasInteracted = false;
-
-        // if (Input.GetKeyDown(KeyCode.E))
-        // {
-        //     this.GetComponent<MeshCollider>().enabled = true;
-        //     this.transform.position = snap.transform.position;
-        //     this.transform.parent = snap.transform.parent;
-        //     animator.SetBool("onHold", false);
-        //     hasInteracted = false;
-        // }
     }
     
     void blockDoor()
     {
-        //push object into place
-        //set door to locked
-        // animator.SetTrigger("onPush");
         isHolding = PlayerPrefs.GetInt("isHolding");
         if (isHolding == 1 && doorIsClosed && !doorIsBlocked)
         {
@@ -226,6 +212,7 @@ public class Interactable : MonoBehaviour
             parent.transform.Find("pivot").gameObject.SetActive(true);
             doorIsClosed = false;
             hasInteracted = false;
+            sound.Play();
         }
     }
 
@@ -235,6 +222,7 @@ public class Interactable : MonoBehaviour
         parent.transform.Find("pivot").gameObject.SetActive(false);
         doorIsClosed = true;
         hasInteracted = false;
+        sound.Play();
     }
 
     void pickUpNote()
