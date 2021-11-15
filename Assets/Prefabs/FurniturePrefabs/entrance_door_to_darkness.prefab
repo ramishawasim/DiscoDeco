@@ -276,6 +276,8 @@ MonoBehaviour:
   interactRadius: 1.5
   interactType: 5
   keypad: {fileID: 0}
+  parent: {fileID: 0}
+  doorIsBlocked: 0
 --- !u!1 &8981104114196793578
 GameObject:
   m_ObjectHideFlags: 0
