@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour
     public float interactRadius = 1.5f;
     public int interactType;
     public GameObject keypad;
-    public GameObject parentDoor;
+    public GameObject parent;
 
     private Material glowMaterial;
     private Color glowColour;
@@ -28,7 +28,8 @@ public class Interactable : MonoBehaviour
 
     private bool hasInteracted;
     private int isHolding;
-    private int doorIsBlocked;
+    private bool doorIsClosed;
+    public bool doorIsBlocked;
     private int notes;
 
     public void Start()
@@ -54,7 +55,9 @@ public class Interactable : MonoBehaviour
         // snap = GameObject.Find("bench1_pillow1");
 
         keypad = keypad;
-        parentDoor = parentDoor;
+        parent = parent;
+        doorIsClosed = true;
+        doorIsBlocked = false;
     }
 
     void Update()
@@ -118,6 +121,10 @@ public class Interactable : MonoBehaviour
             case 6:
                 hide();
                 break;
+            //hide type
+            case 7:
+                placeChair();
+                break;
             }
         }
     }
@@ -135,9 +142,11 @@ public class Interactable : MonoBehaviour
             
             // doorBlocks.gameObject.SetActive(true);
             animator.SetBool("onHold", true);
+
+            parent.transform.Find("chair").gameObject.SetActive(false);
+            parent.transform.Find("InteractableBase").gameObject.SetActive(true);
+
             hasInteracted = false;
-            //disable gameobject
-            this.gameObject.SetActive(false);
         }
         hasInteracted = false;
 
@@ -157,25 +166,27 @@ public class Interactable : MonoBehaviour
         //set door to locked
         // animator.SetTrigger("onPush");
         isHolding = PlayerPrefs.GetInt("isHolding");
-        if (isHolding == 1)
+        if (isHolding == 1 && doorIsClosed && !doorIsBlocked)
         {
-            this.transform.Find("BlockChair").gameObject.SetActive(true);
-            player.transform.Find("HoldChair").gameObject.SetActive(false);
-            // PlayerPrefs.SetInt("doorIsBlocked", 1);
-            PlayerPrefs.SetInt("isHolding", 0);
+            parent.transform.Find("blockChair").gameObject.SetActive(true);
+            parent.transform.Find("original").gameObject.SetActive(true);
+            parent.transform.Find("pivot").gameObject.SetActive(false);
 
-            // doorBlocks.gameObject.SetActive(false);
+            player.transform.Find("HoldChair").gameObject.SetActive(false);
+
+            PlayerPrefs.SetInt("isHolding", 0);
+            doorIsBlocked = true;
+
             animator.SetBool("onHold", false);
             hasInteracted = false;
         }
         else
         {
-            this.transform.Find("BlockChair").gameObject.SetActive(false);
+            parent.transform.Find("block/BlockDoorIndicator/BlockChair").gameObject.SetActive(false);
             player.transform.Find("HoldChair").gameObject.SetActive(true);
-            // PlayerPrefs.SetInt("doorIsBlocked", 0);
             PlayerPrefs.SetInt("isHolding", 1);
+            doorIsBlocked = false;
 
-            // doorBlocks.gameObject.SetActive(true);
             animator.SetBool("onHold", true);
             hasInteracted = false;
         }
@@ -183,19 +194,19 @@ public class Interactable : MonoBehaviour
 
     void openDoor()
     {
-        // doorIsBlocked = PlayerPrefs.GetInt("doorIsBlocked");
-        // if (doorIsBlocked == 0)
-        // {
-        parentDoor.transform.Find("original").gameObject.SetActive(false);
-        parentDoor.transform.Find("pivot").gameObject.SetActive(true);
-        hasInteracted = false;
-        // }
+        if (!doorIsBlocked){
+            parent.transform.Find("original").gameObject.SetActive(false);
+            parent.transform.Find("pivot").gameObject.SetActive(true);
+            doorIsClosed = false;
+            hasInteracted = false;
+        }
     }
 
     void closeDoor()
     {
-        parentDoor.transform.Find("original").gameObject.SetActive(true);
-        parentDoor.transform.Find("pivot").gameObject.SetActive(false);
+        parent.transform.Find("original").gameObject.SetActive(true);
+        parent.transform.Find("pivot").gameObject.SetActive(false);
+        doorIsClosed = true;
         hasInteracted = false;
     }
 
@@ -226,6 +237,23 @@ public class Interactable : MonoBehaviour
 
     void hide()
     {
+        hasInteracted = false;
+    }
+    
+    void placeChair()
+    {
+        isHolding = PlayerPrefs.GetInt("isHolding");
+        if (isHolding == 1 && parent.transform.Find("InteractableBase").gameObject.activeSelf)
+        {
+            player.transform.Find("HoldChair").gameObject.SetActive(false);
+            PlayerPrefs.SetInt("isHolding", 0);
+            
+            animator.SetBool("onHold", false);
+            
+            parent.transform.Find("chair").gameObject.SetActive(true);
+            parent.transform.Find("InteractableBase").gameObject.SetActive(false);
+            hasInteracted = false;
+        }
         hasInteracted = false;
     }
 
