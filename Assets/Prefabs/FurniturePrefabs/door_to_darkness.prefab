@@ -263,6 +263,7 @@ MonoBehaviour:
   interactType: 2
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
+  doorIsBlocked: 0
 --- !u!1 &4840844578782565800
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +574,7 @@ MonoBehaviour:
   interactType: 3
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
+  doorIsBlocked: 0
 --- !u!1 &8946014050693907189
 GameObject:
   m_ObjectHideFlags: 0
