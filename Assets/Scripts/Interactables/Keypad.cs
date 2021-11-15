@@ -56,7 +56,7 @@ public class Keypad : MonoBehaviour
                 if (input == curPassword)
                 {
                     //Load the next scene
-                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    // SceneManager.LoadScene(1);
 
                     Debug.Log("Correct Password!");
                     btnClicked = 0;
