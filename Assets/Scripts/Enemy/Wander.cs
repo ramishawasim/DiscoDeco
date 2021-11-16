@@ -21,7 +21,7 @@ public class Wander : State
         name = EState.WANDER;
         this.playerLastKnownPosition = playerLastKnownPosition;
 
-        timeOut = Random.Range(5f, 10f);
+        timeOut = Random.Range(2f, 5f);
     }
 
     public override void Enter()
@@ -40,6 +40,12 @@ public class Wander : State
         {
             nextState = new Pursue(npc, agent, anim, player);
             base.Exit();
+        }
+
+        if (IsFacingDoor() && IsDoorBlocked() && GetDistanceFromDoor() < 2f)
+        {
+            nextState = new Break(npc, agent, anim, player, name);
+            stage = EVENT.EXIT;
         }
 
         if (timer >= timeOut)
@@ -71,16 +77,18 @@ public class Wander : State
                 // Vector3 targetLocal = wanderTarget + new Vector3(0, 0, wanderDistance);
                 // Vector3 targetWorld = npc.transform.InverseTransformDirection(targetLocal);
 
-                Vector3 targetWorld = new Vector3(player.position.x + Random.Range(-1f, 1f), player.position.y, player.position.z + Random.Range(-1f, 1f));
+                // Vector3 targetWorld = new Vector3(player.position.x + Random.Range(-1f, 1f), player.position.y, player.position.z + Random.Range(-3f, 3f));
 
-                NavMeshPath navMeshPath = new NavMeshPath();
+                Vector3 targetWorld = player.position;
 
-                agent.CalculatePath(targetWorld, navMeshPath);
+                // NavMeshPath navMeshPath = new NavMeshPath();
 
-                if (navMeshPath.status == NavMeshPathStatus.PathPartial)
-                {
-                    agent.SetDestination(targetWorld);
-                }
+                // agent.CalculatePath(targetWorld, navMeshPath);
+
+                // if (navMeshPath.status == NavMeshPathStatus.PathPartial)
+                // {
+                agent.SetDestination(targetWorld);
+                // }
             }
         }
     }
