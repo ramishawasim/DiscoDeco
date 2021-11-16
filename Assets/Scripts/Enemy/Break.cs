@@ -19,7 +19,7 @@ public class Break : State
 
     public override void Enter()
     {
-        // TODO start breaking anim
+        anim.SetTrigger("onPunch");
         base.Enter();
         agent.isStopped = true;
         agent.speed = 0;
@@ -42,7 +42,7 @@ public class Break : State
 
     public override void Exit()
     {
-        // TODO: stop breaking anim
+        anim.ResetTrigger("onPunch");
         base.Exit();
     }
 }

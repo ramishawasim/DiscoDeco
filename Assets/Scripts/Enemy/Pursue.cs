@@ -15,7 +15,7 @@ public class Pursue : State
 
     public override void Enter()
     {
-        // running anim
+        anim.SetBool("onWalk", true);
         base.Enter();
     }
 
@@ -24,7 +24,7 @@ public class Pursue : State
         base.Update();
 
 
-        Debug.Log(Vector3.Distance(npc.transform.position, player.position));
+        // Debug.Log(Vector3.Distance(npc.transform.position, player.position));
 
 
         if (!IsPlayerBehind() || !CanSeePlayer() /*&& PlayerPrefs.GetInt("isHiding") == 0*/)
@@ -61,7 +61,7 @@ public class Pursue : State
 
     public override void Exit()
     {
-        // TODO stop running anim
+        // anim.SetBool("onWalk", false);
         // agent.isStopped = true;
         // agent.speed = 0;
         base.Exit();
