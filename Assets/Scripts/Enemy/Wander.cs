@@ -42,6 +42,12 @@ public class Wander : State
             base.Exit();
         }
 
+        if (IsFacingDoor() && IsDoorBlocked() && GetDistanceFromDoor() < 2f)
+        {
+            nextState = new Break(npc, agent, anim, player, name);
+            stage = EVENT.EXIT;
+        }
+
         if (timer >= timeOut)
         {
             nextState = new Patrol(npc, agent, anim, player);
@@ -71,7 +77,7 @@ public class Wander : State
                 // Vector3 targetLocal = wanderTarget + new Vector3(0, 0, wanderDistance);
                 // Vector3 targetWorld = npc.transform.InverseTransformDirection(targetLocal);
 
-                Vector3 targetWorld = new Vector3(player.position.x + Random.Range(-1f, 1f), player.position.y, player.position.z + Random.Range(-1f, 1f));
+                Vector3 targetWorld = new Vector3(player.position.x + Random.Range(-1f, 1f), player.position.y, player.position.z + Random.Range(-3f, 3f));
 
                 NavMeshPath navMeshPath = new NavMeshPath();
 

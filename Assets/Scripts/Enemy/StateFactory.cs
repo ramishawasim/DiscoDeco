@@ -19,4 +19,16 @@ public class StateFactory
         }
     }
 
+    public static State CreateState(EState state, GameObject npc, NavMeshAgent agent, Animator anim, Transform player, Vector3 playerLastKnownPosition)
+    {
+        switch (state)
+        {
+            case EState.WANDER:
+                return new Wander(npc, agent, anim, player, playerLastKnownPosition);
+            default:
+                return new Wander(npc, agent, anim, player, playerLastKnownPosition);
+
+        }
+    }
+
 }
