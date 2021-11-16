@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd86d54f0d0c78f4192764c5f3151314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 25
-  angle: 135
+  radius: 40
+  angle: 175
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5365c06c9013c4cbf219f29fc76dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: -10
+  radius: -15
   angle: 135
   playerRef: {fileID: 0}
   targetMask:
