@@ -20,7 +20,6 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         action = new PauseAction();
-        
     }
 
     private void OnEnable()

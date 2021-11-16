@@ -20,7 +20,6 @@ public class TypeTexter : MonoBehaviour
         textComp = this.GetComponent<TMP_Text>();
         message = textComp.text + " \"" + cow[cow.Length - 1] + "\"";
         
-        Debug.Log(message);
         textComp.text = "";
         StartCoroutine(TypeText());
         this.gameObject.SetActive(false);

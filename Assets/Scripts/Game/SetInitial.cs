@@ -20,7 +20,7 @@ public class SetInitial : MonoBehaviour
         //Set "cowText" to "" at start
         PlayerPrefs.SetString("cowText", "");
         //Set "chairCount" to getCount.Length
-        getCount = GameObject.FindGameObjectsWithTag ("Chair");
+        getCount = GameObject.FindGameObjectsWithTag("Chair");
         PlayerPrefs.SetInt("chairCount", getCount.Length);
     }
 }

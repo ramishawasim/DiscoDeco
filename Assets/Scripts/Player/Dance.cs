@@ -8,6 +8,7 @@ public class Dance : MonoBehaviour
     private Animator animator;
     private PlayerController playerController;
     private CharacterController characterController;
+    private bool hasInteracted;
 
     void Start()
     {
@@ -17,23 +18,27 @@ public class Dance : MonoBehaviour
 
         playerController = this.GetComponent<PlayerController>();
         characterController = this.GetComponent<CharacterController>();
+        hasInteracted = false;
     }
 
     void Update()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if (hasInteracted == false)
         {
-            if (hit.transform.gameObject.tag == "DanceFloor")
+            if (Physics.Raycast(ray, out hit))
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (hit.transform.gameObject.tag == "DanceFloor")
                 {
-                    playerController.enabled = false;
-                    characterController.enabled = false;
-                    animator.SetTrigger("onDance");
-                    StartCoroutine(WaitForAnimation(animator));
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        hasInteracted = true;
+                        playerController.enabled = false;
+                        animator.SetBool("onWalk", false);
+                        animator.SetTrigger("onDance");
+                        StartCoroutine(WaitForAnimation(animator));
+                    }
                 }
             }
         }
@@ -41,8 +46,9 @@ public class Dance : MonoBehaviour
 
     IEnumerator WaitForAnimation(Animator anim)
     {
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        // yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        yield return new WaitForSeconds(1.69f);
         playerController.enabled = true;
-        characterController.enabled = true;
+        hasInteracted = false;
     }
 }
