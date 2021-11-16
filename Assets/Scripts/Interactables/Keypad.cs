@@ -58,7 +58,7 @@ public class Keypad : MonoBehaviour
                 if (input == curPassword && notes == 3)
                 {
                     //Load the next scene
-                    // SceneManager.LoadScene(1);
+                    SceneManager.LoadScene("Game Win");
 
                     Debug.Log("Correct Password!");
                     inputArr[0] = "0";

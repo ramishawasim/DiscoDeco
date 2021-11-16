@@ -38,7 +38,7 @@ public class Reset : MonoBehaviour
 
     void reset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Game Over");
     }
 
     IEnumerator WaitForAnimation(Animator anim)
