@@ -31,6 +31,7 @@ public class Interactable : MonoBehaviour
     private bool doorIsClosed;
     private bool doorIsBlocked;
     private int notes;
+    private int isDead;
     private GameObject[] getCount;
 
     private int frames = 0;
@@ -253,17 +254,21 @@ public class Interactable : MonoBehaviour
 
     void keypadObject()
     {
-        keypad.SetActive(true);
-        camera.SetActive(false);
-        playerController.enabled = false;
-        // characterController.enabled = false;
-        if (Input.GetKeyDown(KeyCode.E))
+        isDead = PlayerPrefs.GetInt("isDead");
+        if (isDead == 0)
         {
-            keypad.SetActive(false);
-            camera.SetActive(true);
-            playerController.enabled = true;
-            characterController.enabled = true;
-            hasInteracted = false;
+            keypad.SetActive(true);
+            camera.SetActive(false);
+            playerController.enabled = false;
+            // characterController.enabled = false;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                keypad.SetActive(false);
+                camera.SetActive(true);
+                playerController.enabled = true;
+                characterController.enabled = true;
+                hasInteracted = false;
+            }
         }
     }
 

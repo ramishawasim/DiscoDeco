@@ -15,6 +15,8 @@ public class SetInitial : MonoBehaviour
         PlayerPrefs.SetInt("isHolding", 0);
         //Set "isHiding" to 0 at start
         PlayerPrefs.SetInt("isHiding", 0);
+        //Set "isDead" to 0 at start
+        PlayerPrefs.SetInt("isDead", 0);
         //Set "notes" to 0 at start
         PlayerPrefs.SetInt("notes", 0);
         //Set "cowText" to "" at start
