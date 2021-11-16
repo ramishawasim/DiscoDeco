@@ -46,7 +46,7 @@ public class Pursue : State
                 nextState = new Break(npc, agent, anim, player, name);
                 stage = EVENT.EXIT;
             }
-            else if ((!IsPlayerBehind() || !CanSeePlayer()) && PlayerPrefs.GetInt("isHiding") == 0)
+            else if ((!IsPlayerBehind() || !CanSeePlayer()) && player.tag != "Hide")
             {
                 nextState = new Wander(npc, agent, anim, player, playerLastKnownPosition);
                 stage = EVENT.EXIT;
