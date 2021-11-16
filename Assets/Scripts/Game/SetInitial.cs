@@ -8,7 +8,7 @@ public class SetInitial : MonoBehaviour
 {
     private GameObject[] getCount;
     // Setting initial PlayerPrefs
-    void Awake()
+    void Start()
     {
         PlayerPrefs.DeleteAll();
         //Set "isHolding" to 0 at start
@@ -20,7 +20,7 @@ public class SetInitial : MonoBehaviour
         //Set "cowText" to "" at start
         PlayerPrefs.SetString("cowText", "");
         //Set "chairCount" to getCount.Length
-        getCount = GameObject.FindGameObjectsWithTag ("Chair");
+        getCount = GameObject.FindGameObjectsWithTag("Chair");
         PlayerPrefs.SetInt("chairCount", getCount.Length);
     }
 }

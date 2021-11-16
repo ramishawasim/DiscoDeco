@@ -59,8 +59,6 @@ public class Keypad : MonoBehaviour
                 {
                     //Load the next scene
                     SceneManager.LoadScene("Game Win");
-
-                    Debug.Log("Correct Password!");
                     inputArr[0] = "0";
                     inputArr[1] = "0";
                     inputArr[2] = "0";
