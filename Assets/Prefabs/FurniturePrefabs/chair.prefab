@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6976692458319772460}
   m_Layer: 0
   m_Name: chair
-  m_TagString: Interactable
+  m_TagString: Chair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 8849326439885817055}
   m_Layer: 0
   m_Name: chair
-  m_TagString: Chair
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,7 +232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5613070986588198546, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: interactRadius
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8860573009999598832, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_Name

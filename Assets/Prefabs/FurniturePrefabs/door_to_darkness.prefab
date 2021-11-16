@@ -136,6 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 244502815289999570}
+  - component: {fileID: 8027552761874970851}
   m_Layer: 0
   m_Name: door_to_darkness
   m_TagString: Untagged
@@ -162,6 +163,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8027552761874970851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589820571295013480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31035fc5ccb9cf488888d8c2462c180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorIsBlocked: 0
 --- !u!1 &1482208287158774766
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +407,6 @@ MonoBehaviour:
   parent: {fileID: 589820571295013480}
   sound: {fileID: 1616194211349052392}
   noteMessage: {fileID: 0}
-  doorIsBlocked: 0
 --- !u!1 &4840844578782565800
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,7 +719,6 @@ MonoBehaviour:
   parent: {fileID: 589820571295013480}
   sound: {fileID: 1616194211349052392}
   noteMessage: {fileID: 0}
-  doorIsBlocked: 0
 --- !u!1 &8946014050693907189
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +941,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 244502815289999570}
     m_Modifications:
+    - target: {fileID: 3211063239468449065, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: m_TagString
+      value: Chair
+      objectReference: {fileID: 0}
     - target: {fileID: 6047513065374373701, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: m_Name
       value: blockChair
@@ -936,6 +952,10 @@ PrefabInstance:
     - target: {fileID: 6047513065374373701, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047513065374373701, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6343905841975565549, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: parent
@@ -945,6 +965,10 @@ PrefabInstance:
       propertyPath: parentDoor
       value: 
       objectReference: {fileID: 589820571295013480}
+    - target: {fileID: 6343905841975565549, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: interactType
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6343905841975565549, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: interactRadius
       value: 2

@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7167c11d984e7294ca62c32f8af6c444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keypad: {fileID: 0}
   threshold: -15
   animator: {fileID: 3322768161755167626}
 --- !u!114 &5342110511232830351
@@ -337,8 +338,12 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1073588687538041865, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073588687538041865, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Chair
       objectReference: {fileID: 0}
     - target: {fileID: 2324479578217429576, guid: c779475173cf124438bfd7e1c29526f9, type: 3}
       propertyPath: m_Layer

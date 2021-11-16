@@ -8,7 +8,7 @@ public class SetInitial : MonoBehaviour
 {
     private GameObject[] getCount;
     // Setting initial PlayerPrefs
-    void Start()
+    void Awake()
     {
         PlayerPrefs.DeleteAll();
         //Set "isHolding" to 0 at start
