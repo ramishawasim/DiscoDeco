@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9005943961469353970}
   - component: {fileID: 1616194211349052392}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: doorSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 244502815289999570}
   - component: {fileID: 8027552761874970851}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: door_to_darkness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 4232940791361935254}
   - component: {fileID: 1877040601677999247}
   - component: {fileID: 4404186818109325185}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: other_knob (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2892707973612676628}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 8724979719694145875}
   - component: {fileID: 234167813781062982}
   - component: {fileID: 185966453939467505}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7821162171454572660}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: original
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 6258339197889814892}
   - component: {fileID: 4840140194511504353}
   - component: {fileID: 1013432185564977054}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: other_knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 4414673288804374322}
   - component: {fileID: 7762155096555307699}
   - component: {fileID: 6376156271492467426}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: knob (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 7861043396289592781}
   - component: {fileID: 1340124717500763503}
   - component: {fileID: 2352373330710525400}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 2290873735741068005}
   - component: {fileID: 1334555508371638771}
   - component: {fileID: 4831642327376477564}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,6 +924,10 @@ PrefabInstance:
       value: InteractableBase
       objectReference: {fileID: 0}
     - target: {fileID: 8860573009999598832, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860573009999598832, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -942,12 +946,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 244502815289999570}
     m_Modifications:
     - target: {fileID: 3211063239468449065, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211063239468449065, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: m_TagString
       value: Chair
       objectReference: {fileID: 0}
     - target: {fileID: 6047513065374373701, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: m_Name
       value: blockChair
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047513065374373701, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6047513065374373701, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: m_IsActive
