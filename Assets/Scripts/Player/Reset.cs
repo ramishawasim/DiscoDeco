@@ -9,10 +9,14 @@ public class Reset : MonoBehaviour
 {
     public float threshold = -50f;
     public Animator animator;
+    private PlayerController playerController;
+    private CharacterController characterController;
 
     private void Start()
     {
         animator = animator.GetComponent<Animator>();  
+        playerController = this.GetComponent<PlayerController>();
+        characterController = this.GetComponent<CharacterController>();
     }
 
     void Update()
@@ -20,8 +24,7 @@ public class Reset : MonoBehaviour
         if (transform.position.y < threshold)
         {
             animator.SetTrigger("onDeath");
-            StartCoroutine(Wait());
-            reset();
+            StartCoroutine(WaitForAnimation(animator));
         }
     }
 
@@ -30,18 +33,20 @@ public class Reset : MonoBehaviour
         if (player.gameObject.tag == "Enemies")
         {
             animator.SetTrigger("onDeath");
-            StartCoroutine(Wait());
-            reset();
+            StartCoroutine(WaitForAnimation(animator));
         }
     }
 
     void reset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    IEnumerator Wait()
+    IEnumerator WaitForAnimation(Animator anim)
     {
-        yield return new WaitForSeconds(5);
+        playerController.enabled = false;
+        characterController.enabled = false;
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        reset();
     }
 }

@@ -392,6 +392,7 @@ MonoBehaviour:
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
   sound: {fileID: 1616194211349052392}
+  noteMessage: {fileID: 0}
   doorIsBlocked: 0
 --- !u!1 &4840844578782565800
 GameObject:
@@ -704,6 +705,7 @@ MonoBehaviour:
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
   sound: {fileID: 1616194211349052392}
+  noteMessage: {fileID: 0}
   doorIsBlocked: 0
 --- !u!1 &8946014050693907189
 GameObject:
@@ -890,6 +892,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 589820571295013480}
     - target: {fileID: 5613070986588198546, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 1616194211349052392}
+    - target: {fileID: 5613070986588198546, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 589820571295013480}
@@ -939,6 +945,14 @@ PrefabInstance:
       propertyPath: parentDoor
       value: 
       objectReference: {fileID: 589820571295013480}
+    - target: {fileID: 6343905841975565549, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: interactRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6343905841975565549, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: interactableRadius
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6388010528934727167, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: m_RootOrder
       value: 3

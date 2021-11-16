@@ -12,10 +12,12 @@ public class SetInitial : MonoBehaviour
         PlayerPrefs.DeleteAll();
         //Set "isHolding" to 0 at start
         PlayerPrefs.SetInt("isHolding", 0);
-        //Set "doorIsBlocked" to 0 at start
-        PlayerPrefs.SetInt("doorIsBlocked", 0);
+        //Set "isHiding" to 0 at start
+        PlayerPrefs.SetInt("isHiding", 0);
         //Set "notes" to 0 at start
         PlayerPrefs.SetInt("notes", 0);
+        //Set "cowText" to "" at start
+        PlayerPrefs.SetString("cowText", "");
     }
 }
 
