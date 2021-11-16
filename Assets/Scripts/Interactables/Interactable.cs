@@ -50,7 +50,7 @@ public class Interactable : MonoBehaviour
 
         //for animation
         playerAnimator = GameObject.Find("Suit_Female");
-        animator = playerAnimator.GetComponent<Animator>();  
+        animator = playerAnimator.GetComponent<Animator>();
 
         //objects
         // hands = GameObject.Find("HoldObjectPosition");
@@ -64,7 +64,8 @@ public class Interactable : MonoBehaviour
 
     void FrameUpdate()
     {
-        if (hasInteracted == false) {
+        if (hasInteracted == false)
+        {
             //Within a specific range, activate interactable glow
             Collider[] interactableColliders = Physics.OverlapSphere(transform.position, interactableRadius);
             foreach (var interactableCollider in interactableColliders)
@@ -82,12 +83,14 @@ public class Interactable : MonoBehaviour
     void Update()
     {
         frames++;
-        if (frames == 20) { //If the remainder of the current frame divided by 10 is 0 run the function.
+        if (frames == 20)
+        { //If the remainder of the current frame divided by 10 is 0 run the function.
             frames = 0;
             FrameUpdate();
         }
 
-        if (hasInteracted == false) {
+        if (hasInteracted == false)
+        {
             //Within a specific range, interact with item
             Collider[] pickUpColliders = Physics.OverlapSphere(transform.position, interactRadius);
             foreach (var pickUpCollider in pickUpColliders)
@@ -105,38 +108,38 @@ public class Interactable : MonoBehaviour
         {
             switch (interactType)
             {
-            //pick up object type
-            case 0:
-                pickUpObject();
-                break;
-            //block door type
-            case 1:
-                blockDoor();
-                break;
-            //open door type
-            case 2:
-                openDoor();
-                break;
-            //close door type
-            case 3:
-                closeDoor();
-                break;
-            //pick up note type
-            case 4:
-                pickUpNote();
-                break;
-            //keypad object type
-            case 5:
-                keypadObject();
-                break;
-            //hide type
-            case 6:
-                hide();
-                break;
-            //hide type
-            case 7:
-                placeChair();
-                break;
+                //pick up object type
+                case 0:
+                    pickUpObject();
+                    break;
+                //block door type
+                case 1:
+                    blockDoor();
+                    break;
+                //open door type
+                case 2:
+                    openDoor();
+                    break;
+                //close door type
+                case 3:
+                    closeDoor();
+                    break;
+                //pick up note type
+                case 4:
+                    pickUpNote();
+                    break;
+                //keypad object type
+                case 5:
+                    keypadObject();
+                    break;
+                //hide type
+                case 6:
+                    hide();
+                    break;
+                //hide type
+                case 7:
+                    placeChair();
+                    break;
             }
         }
     }
@@ -150,17 +153,19 @@ public class Interactable : MonoBehaviour
             PlayerPrefs.SetInt("isHolding", 1);
             
             animator.SetBool("onHold", true);
-            try{
+            try
+            {
                 parent.transform.Find("chair").gameObject.SetActive(false);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.Log("blockChair");
             }
-            try{
-            parent.transform.Find("blockChair").gameObject.SetActive(false);
+            try
+            {
+                parent.transform.Find("blockChair").gameObject.SetActive(false);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.Log("chair");
             }
@@ -168,7 +173,7 @@ public class Interactable : MonoBehaviour
         }
         hasInteracted = false;
     }
-    
+
     void blockDoor()
     {
         isHolding = PlayerPrefs.GetInt("isHolding");
@@ -203,9 +208,10 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    void openDoor()
+    public void openDoor()
     {
-        if (!doorIsBlocked && !parent.transform.Find("blockChair").gameObject.activeSelf){
+        if (!doorIsBlocked && !parent.transform.Find("blockChair").gameObject.activeSelf)
+        {
             parent.transform.Find("original").gameObject.SetActive(false);
             parent.transform.Find("pivot").gameObject.SetActive(true);
             doorIsClosed = false;
@@ -291,7 +297,7 @@ public class Interactable : MonoBehaviour
             }
         }
     }
-    
+
     void placeChair()
     {
         isHolding = PlayerPrefs.GetInt("isHolding");
@@ -299,9 +305,9 @@ public class Interactable : MonoBehaviour
         {
             player.transform.Find("HoldChair").gameObject.SetActive(false);
             PlayerPrefs.SetInt("isHolding", 0);
-            
+
             animator.SetBool("onHold", false);
-            
+
             parent.transform.Find("chair").gameObject.SetActive(true);
             parent.transform.Find("InteractableBase").gameObject.SetActive(false);
             hasInteracted = false;

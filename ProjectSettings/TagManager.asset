@@ -8,6 +8,10 @@ TagManager:
   - Interactable
   - keypad
   - Hide
+  - Debug
+  - Waypoint
+  - WaypointManager
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Cow
-  - 
+  - Walls
   - 
   - 
   - 
