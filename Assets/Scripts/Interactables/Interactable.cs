@@ -156,7 +156,7 @@ public class Interactable : MonoBehaviour
         isHolding = PlayerPrefs.GetInt("isHolding");
         getCount = GameObject.FindGameObjectsWithTag("Chair");
 
-        if (isHolding == 0 && getCount.Length == PlayerPrefs.GetInt("chairCount"))
+        if (isHolding == 0 && getCount.Length <= PlayerPrefs.GetInt("chairCount"))
         {
             PlayerPrefs.SetInt("isHolding", 1);
             animator.SetBool("onHold", true);
@@ -189,7 +189,7 @@ public class Interactable : MonoBehaviour
         getCount = GameObject.FindGameObjectsWithTag("Chair");
         doorIsBlocked = parent.GetComponent<IsDoorBlocked>().doorIsBlocked;
 
-        if (isHolding == 1 && doorIsClosed && !doorIsBlocked && getCount.Length == PlayerPrefs.GetInt("chairCount"))
+        if (isHolding == 1 && doorIsClosed && !doorIsBlocked && getCount.Length <= PlayerPrefs.GetInt("chairCount"))
         {
             sound.Play();
             parent.transform.Find("InteractableBase").gameObject.SetActive(false);
@@ -307,7 +307,7 @@ public class Interactable : MonoBehaviour
         isHolding = PlayerPrefs.GetInt("isHolding");
         getCount = GameObject.FindGameObjectsWithTag("Chair");
 
-        if (isHolding == 1 && parent.transform.Find("InteractableBase").gameObject.activeSelf && getCount.Length == PlayerPrefs.GetInt("chairCount"))
+        if (isHolding == 1 && parent.transform.Find("InteractableBase").gameObject.activeSelf && getCount.Length <= PlayerPrefs.GetInt("chairCount"))
         {
             PlayerPrefs.SetInt("isHolding", 0);
             animator.SetBool("onHold", false);
@@ -325,7 +325,7 @@ public class Interactable : MonoBehaviour
         getCount = GameObject.FindGameObjectsWithTag("Chair");
         doorIsBlocked = parent.GetComponent<IsDoorBlocked>().doorIsBlocked;
 
-        if (isHolding == 0 && doorIsClosed && doorIsBlocked && getCount.Length == PlayerPrefs.GetInt("chairCount"))
+        if (isHolding == 0 && doorIsClosed && doorIsBlocked && getCount.Length <= PlayerPrefs.GetInt("chairCount"))
         {
             parent.transform.Find("blockChair").gameObject.SetActive(false);
             parent.transform.Find("InteractableBase").gameObject.SetActive(true);

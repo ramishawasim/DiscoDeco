@@ -12,12 +12,15 @@ public class CowDance : State
 
     public override void Enter()
     {
-        anim.SetBool("onDance",true);
+        Debug.Log("dancing cow start");
+        // anim.SetBool("onDance",true);
+        anim.SetTrigger("onDance");
         base.Enter();
     }
 
     public override void Update()
     {
+        Debug.Log("dancing cow");
         base.Update();
 
         // player.gameObject.GetComponent<Reset>().Die();
