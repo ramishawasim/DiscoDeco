@@ -154,8 +154,6 @@ public class Interactable : MonoBehaviour
     {
         isHolding = PlayerPrefs.GetInt("isHolding");
         getCount = GameObject.FindGameObjectsWithTag ("Chair");
-        Debug.Log(getCount.Length);
-        Debug.Log(PlayerPrefs.GetInt("chairCount"));
 
         if (isHolding == 0 && getCount.Length == PlayerPrefs.GetInt("chairCount"))
         {

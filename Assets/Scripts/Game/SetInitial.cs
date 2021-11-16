@@ -21,7 +21,6 @@ public class SetInitial : MonoBehaviour
         PlayerPrefs.SetString("cowText", "");
         //Set "chairCount" to getCount.Length
         getCount = GameObject.FindGameObjectsWithTag("Chair");
-        Debug.Log(getCount.Length);
         PlayerPrefs.SetInt("chairCount", getCount.Length);
     }
 }
