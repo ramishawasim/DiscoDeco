@@ -9,6 +9,10 @@ public class COW : MonoBehaviour
 
     private int notes;
 
+    void Start()
+    {
+        PlayerPrefs.SetString("cowText", "");
+    }
     void Update()
     {
         this.GetComponent<TMP_Text>().text = PlayerPrefs.GetString("cowText");
