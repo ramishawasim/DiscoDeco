@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     // [SerializeField]
     private float playerSpeed;
     // [SerializeField]
-    private float normalSpeed = 6.5f;
-    private float slowSpeed = 4f;
+    private float normalSpeed = 7.5f;
+    private float slowSpeed = 5f;
     // [SerializeField]
     // private float jumpHeight = 1.0f;
     [SerializeField]
