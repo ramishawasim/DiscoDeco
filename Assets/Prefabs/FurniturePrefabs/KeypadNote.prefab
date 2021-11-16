@@ -61,8 +61,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9ac273877c320b64b8acec70f4a25f99, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0f2e843fbbaf10342bdcf1b831f0634e, type: 2}
+  - {fileID: 2100000, guid: bb0f15a3c8ff5564698b6fd7dfdf08b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6543aea411c1afe4cbd667ab9cad2d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableRadius: 10
+  interactableRadius: 12
   interactRadius: 2
   interactType: 4
   keypad: {fileID: 0}

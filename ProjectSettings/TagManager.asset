@@ -12,6 +12,8 @@ TagManager:
   - Waypoint
   - WaypointManager
   - Door
+  - Chair
+  - DanceFloor
   layers:
   - Default
   - TransparentFX

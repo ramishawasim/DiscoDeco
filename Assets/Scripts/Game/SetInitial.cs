@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 //Attach to empty game object in Start Menu
 public class SetInitial : MonoBehaviour
 {
+    private GameObject[] getCount;
     // Setting initial PlayerPrefs
     void Start()
     {
@@ -18,6 +19,9 @@ public class SetInitial : MonoBehaviour
         PlayerPrefs.SetInt("notes", 0);
         //Set "cowText" to "" at start
         PlayerPrefs.SetString("cowText", "");
+        //Set "chairCount" to getCount.Length
+        getCount = GameObject.FindGameObjectsWithTag ("Chair");
+        PlayerPrefs.SetInt("chairCount", getCount.Length);
     }
 }
 
