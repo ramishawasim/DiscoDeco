@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6972649256730632802}
   - component: {fileID: 389165708856994863}
   - component: {fileID: 364474257603046550}
+  - component: {fileID: 2341472311452802483}
   m_Layer: 0
   m_Name: DiscoFloorPlaceholder
   m_TagString: Untagged
@@ -95,3 +96,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2341472311452802483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548239294022252050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19fed7da0e6e3c46a362d274887d770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

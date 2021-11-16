@@ -14,6 +14,7 @@ public class Keypad : MonoBehaviour
 
     private float btnClicked;
     private string[] inputArr = {"0", "0", "0"};
+    private int notes;
 
     void Start()
     {
@@ -53,12 +54,16 @@ public class Keypad : MonoBehaviour
             
             case "E":
                 input = getStringInput();
-                if (input == curPassword)
+                notes = PlayerPrefs.GetInt("notes");
+                if (input == curPassword && notes == 3)
                 {
                     //Load the next scene
                     // SceneManager.LoadScene(1);
 
                     Debug.Log("Correct Password!");
+                    inputArr[0] = "0";
+                    inputArr[1] = "0";
+                    inputArr[2] = "0";
                     btnClicked = 0;
                 }        
                 else

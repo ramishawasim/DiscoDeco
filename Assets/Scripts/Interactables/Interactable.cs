@@ -18,9 +18,7 @@ public class Interactable : MonoBehaviour
 
     private GameObject player;
     private GameObject camera;
-    private GameObject doorBlocks;
-    // private GameObject hands;
-    // private GameObject snap;
+    public GameObject noteMessage;
 
     private GameObject playerAnimator;
     private Animator animator;
@@ -29,6 +27,7 @@ public class Interactable : MonoBehaviour
 
     private bool hasInteracted;
     private int isHolding;
+    private int isHiding;
     private bool doorIsClosed;
     public bool doorIsBlocked;
     private int notes;
@@ -45,7 +44,7 @@ public class Interactable : MonoBehaviour
         //for enabling/disabling
         player = GameObject.Find("Player");
         camera = GameObject.Find("ThirdPersonCamera");
-        doorBlocks = GameObject.Find("DoorBlocks");
+
         playerController = player.GetComponent<PlayerController>();
         characterController = player.GetComponent<CharacterController>();
 
@@ -152,8 +151,7 @@ public class Interactable : MonoBehaviour
         {
             player.transform.Find("HoldChair").gameObject.SetActive(true);
             PlayerPrefs.SetInt("isHolding", 1);
-
-            // doorBlocks.gameObject.SetActive(true);
+            
             animator.SetBool("onHold", true);
             try
             {
@@ -172,8 +170,6 @@ public class Interactable : MonoBehaviour
                 Debug.Log("chair");
             }
             parent.transform.Find("InteractableBase").gameObject.SetActive(true);
-
-            hasInteracted = false;
         }
         hasInteracted = false;
     }
@@ -183,6 +179,7 @@ public class Interactable : MonoBehaviour
         isHolding = PlayerPrefs.GetInt("isHolding");
         if (isHolding == 1 && doorIsClosed && !doorIsBlocked)
         {
+            sound.Play();
             parent.transform.Find("blockChair").gameObject.SetActive(true);
             parent.transform.Find("InteractableBase").gameObject.SetActive(false);
             parent.transform.Find("original").gameObject.SetActive(true);
@@ -194,6 +191,7 @@ public class Interactable : MonoBehaviour
             doorIsBlocked = true;
 
             animator.SetBool("onHold", false);
+            
             hasInteracted = false;
         }
         else
@@ -233,9 +231,23 @@ public class Interactable : MonoBehaviour
 
     void pickUpNote()
     {
+        animator.SetTrigger("onPickUp");
         notes = PlayerPrefs.GetInt("notes");
-        PlayerPrefs.SetInt("notes", notes + 1);
-        Debug.Log("Notes" + (notes + 1).ToString());
+        PlayerPrefs.SetInt("notes", notes+1);
+        switch (PlayerPrefs.GetInt("notes"))
+        {
+            case 1:
+                PlayerPrefs.SetString("cowText", "C");
+            break;
+            case 2:
+                PlayerPrefs.SetString("cowText", "CO");
+            break;
+            case 3:
+                PlayerPrefs.SetString("cowText", "COW");
+            break;
+        }
+        // noteMessage.gameObject.SetActive(true);
+
         hasInteracted = false;
         this.gameObject.SetActive(false);
     }
@@ -258,7 +270,32 @@ public class Interactable : MonoBehaviour
 
     void hide()
     {
-        hasInteracted = false;
+        isHiding = PlayerPrefs.GetInt("isHiding");
+        isHolding = PlayerPrefs.GetInt("isHolding");
+        if(isHiding == 0 && isHolding == 0)
+        {
+            playerController.enabled = false;
+            characterController.enabled = false;
+            animator.SetBool("onWalk", false);
+            
+            Vector3 inStandP = parent.transform.Find("insidePlacement").gameObject.transform.position;
+            Quaternion inStandR = parent.transform.Find("insidePlacement").gameObject.transform.rotation;
+            player.transform.position = inStandP;
+            player.transform.rotation = inStandR;
+            player.tag = "Hide";
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Vector3 outStand = parent.transform.Find("outsidePlacement").gameObject.transform.position;
+                player.transform.position = outStand;
+                
+                player.tag = "Player";
+                playerController.enabled = true;
+                characterController.enabled = true;
+
+                hasInteracted = false;
+            }
+        }
     }
 
     void placeChair()
@@ -277,14 +314,4 @@ public class Interactable : MonoBehaviour
         }
         hasInteracted = false;
     }
-
-    void Victory()
-    {
-        notes = PlayerPrefs.GetInt("notes");
-        if (notes == 3)
-        {
-            Debug.Log("Victory");
-        }
-    }
-
 }
