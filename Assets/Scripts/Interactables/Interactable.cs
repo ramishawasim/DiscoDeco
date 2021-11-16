@@ -149,13 +149,13 @@ public class Interactable : MonoBehaviour
     void pickUpObject()
     {
         isHolding = PlayerPrefs.GetInt("isHolding");
-        getCount = GameObject.FindGameObjectsWithTag ("Chair");
+        getCount = GameObject.FindGameObjectsWithTag("Chair");
 
         if (isHolding == 0 && getCount.Length == PlayerPrefs.GetInt("chairCount"))
         {
             player.transform.Find("HoldChair").gameObject.SetActive(true);
             PlayerPrefs.SetInt("isHolding", 1);
-            
+
             animator.SetBool("onHold", true);
             try
             {
@@ -181,7 +181,7 @@ public class Interactable : MonoBehaviour
     void blockDoor()
     {
         isHolding = PlayerPrefs.GetInt("isHolding");
-        getCount = GameObject.FindGameObjectsWithTag ("Chair");
+        getCount = GameObject.FindGameObjectsWithTag("Chair");
 
         if (isHolding == 1 && doorIsClosed && !doorIsBlocked && getCount.Length == PlayerPrefs.GetInt("chairCount"))
         {
@@ -197,7 +197,7 @@ public class Interactable : MonoBehaviour
             doorIsBlocked = true;
 
             animator.SetBool("onHold", false);
-            
+
             hasInteracted = false;
         }
         else
@@ -239,18 +239,18 @@ public class Interactable : MonoBehaviour
     {
         animator.SetTrigger("onPickUp");
         notes = PlayerPrefs.GetInt("notes");
-        PlayerPrefs.SetInt("notes", notes+1);
+        PlayerPrefs.SetInt("notes", notes + 1);
         switch (PlayerPrefs.GetInt("notes"))
         {
             case 1:
                 PlayerPrefs.SetString("cowText", "C");
-            break;
+                break;
             case 2:
                 PlayerPrefs.SetString("cowText", "CO");
-            break;
+                break;
             case 3:
                 PlayerPrefs.SetString("cowText", "COW");
-            break;
+                break;
         }
         // noteMessage.gameObject.SetActive(true);
 
@@ -263,7 +263,7 @@ public class Interactable : MonoBehaviour
         keypad.SetActive(true);
         camera.SetActive(false);
         playerController.enabled = false;
-        characterController.enabled = false;
+        // characterController.enabled = false;
         if (Input.GetKeyDown(KeyCode.E))
         {
             keypad.SetActive(false);
@@ -278,12 +278,12 @@ public class Interactable : MonoBehaviour
     {
         isHiding = PlayerPrefs.GetInt("isHiding");
         isHolding = PlayerPrefs.GetInt("isHolding");
-        if(isHiding == 0 && isHolding == 0)
+        if (isHiding == 0 && isHolding == 0)
         {
             playerController.enabled = false;
             characterController.enabled = false;
             animator.SetBool("onWalk", false);
-            
+
             Vector3 inStandP = parent.transform.Find("insidePlacement").gameObject.transform.position;
             Quaternion inStandR = parent.transform.Find("insidePlacement").gameObject.transform.rotation;
             player.transform.position = inStandP;
@@ -294,7 +294,7 @@ public class Interactable : MonoBehaviour
             {
                 Vector3 outStand = parent.transform.Find("outsidePlacement").gameObject.transform.position;
                 player.transform.position = outStand;
-                
+
                 player.tag = "Player";
                 playerController.enabled = true;
                 characterController.enabled = true;
@@ -307,8 +307,8 @@ public class Interactable : MonoBehaviour
     void placeChair()
     {
         isHolding = PlayerPrefs.GetInt("isHolding");
-        getCount = GameObject.FindGameObjectsWithTag ("Chair");
-        
+        getCount = GameObject.FindGameObjectsWithTag("Chair");
+
         if (isHolding == 1 && parent.transform.Find("InteractableBase").gameObject.activeSelf && getCount.Length == PlayerPrefs.GetInt("chairCount"))
         {
             player.transform.Find("HoldChair").gameObject.SetActive(false);
