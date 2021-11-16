@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6543aea411c1afe4cbd667ab9cad2d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableRadius: 7.5
+  interactableRadius: 6
   interactRadius: 2
   interactType: 4
   keypad: {fileID: 0}
