@@ -14,7 +14,7 @@ public class Patrol : State
     public Patrol(GameObject npc, NavMeshAgent agent, Animator anim, Transform player) : base(npc, agent, anim, player)
     {
         name = STATE.PATROL;
-        agent.speed = 2;
+        agent.speed = 5;
         agent.isStopped = false;
         waypointManager = GameObject.FindGameObjectWithTag("WaypointManager").GetComponent<WaypointManager>();
         waypointManager.Init();

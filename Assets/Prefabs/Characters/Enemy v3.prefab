@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd86d54f0d0c78f4192764c5f3151314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 25
-  angle: 135
+  radius: 40
+  angle: 175
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5365c06c9013c4cbf219f29fc76dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: -10
+  radius: -15
   angle: 135
   playerRef: {fileID: 0}
   targetMask:
@@ -295,7 +295,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c39bae9484f1043499246ad1dda5a371, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -422,7 +422,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 18520bd35080e7f4f87a67fdc4c0f07f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.9
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

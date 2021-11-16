@@ -15,10 +15,10 @@ public class MooController : MonoBehaviour
 
     void callMooLogic()
     {
-        int r = Random.Range(0, 3);
+        int r = Random.Range(0, 2);
         float rand = Random.Range(3.5f, 7.5f);
 
-        if (r == 0)
+        if (r != 0)
         {
             callMoo();
         }
