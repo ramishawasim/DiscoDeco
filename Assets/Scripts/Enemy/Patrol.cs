@@ -23,7 +23,7 @@ public class Patrol : State
     public override void Enter()
     {
         currentWaypoint = waypointManager.CalibrateAndGetNearestWaypoint(this.npc.transform);
-        // TODO: animation enter
+        anim.SetBool("onWalk", true);
         base.Enter();
     }
 
@@ -60,7 +60,7 @@ public class Patrol : State
 
     public override void Exit()
     {
-        // TODO: Exit animation walking
+        // anim.SetBool("onWalk", false);
         base.Exit();
     }
 

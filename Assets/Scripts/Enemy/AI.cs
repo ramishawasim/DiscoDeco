@@ -14,7 +14,7 @@ public class AI : MonoBehaviour
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
-        anim = this.GetComponent<Animator>();
+        anim = this.transform.Find("Cow").gameObject.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         currentState = new Start(this.gameObject, agent, anim, player);

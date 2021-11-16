@@ -26,6 +26,7 @@ public class Wander : State
 
     public override void Enter()
     {
+        anim.SetBool("onWalk", true);
         base.Enter();
         agent.isStopped = false;
         agent.speed = 6.0f;
@@ -86,6 +87,7 @@ public class Wander : State
 
     public override void Exit()
     {
+        // anim.SetBool("onWalk", false);
         base.Exit();
     }
 }
