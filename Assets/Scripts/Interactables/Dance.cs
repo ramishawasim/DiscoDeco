@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dance : MonoBehaviour
 {
+    public float range = 12f;
     private GameObject player;
     private GameObject playerAnimator;
     private Animator animator;
@@ -20,13 +21,15 @@ public class Dance : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
         characterController = player.GetComponent<CharacterController>();
     }
+
     void Update()
     {
-        //Within a specific range, interact with item
-        Collider[] danceColliders = Physics.OverlapSphere(transform.position, 1);
-        foreach (var danceCollider in danceColliders)
+        Ray ray = new Ray(transform.position, Vector3.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
         {
-            if (danceCollider.tag == "Player")
+            if (hit.transform.gameObject.tag == "Player")
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -41,7 +44,7 @@ public class Dance : MonoBehaviour
 
     IEnumerator WaitForAnimation(Animator anim)
     {
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+anim.GetCurrentAnimatorStateInfo(0).normalizedTime - 0.2f);
         playerController.enabled = true;
         characterController.enabled = true;
     }
