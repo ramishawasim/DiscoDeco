@@ -3,19 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class State : MonoBehaviour
+public class State
 {
-    public enum STATE
-    {
-        IDLE, PATROL, PURSUE
-    };
-
     public enum EVENT
     {
         ENTER, UPDATE, EXIT
     }
 
-    public STATE name;
+    public EState name;
     protected EVENT stage;
     protected GameObject npc;
     protected Animator anim;
@@ -25,10 +20,8 @@ public class State : MonoBehaviour
 
     private FieldOfView fov;
     private BackFieldOfView bfov;
+    private DoorStateHandler doorStateHandler;
 
-    float visDist = 10f;
-    float visAngle = 30f;
-    float shootDist = 7f;
 
     public State(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
     {
@@ -39,10 +32,19 @@ public class State : MonoBehaviour
 
         fov = this.npc.GetComponent<FieldOfView>();
         bfov = this.npc.GetComponent<BackFieldOfView>();
+        doorStateHandler = this.npc.GetComponent<DoorStateHandler>();
     }
 
     public virtual void Enter() { stage = EVENT.UPDATE; }
-    public virtual void Update() { stage = EVENT.UPDATE; }
+    public virtual void Update()
+    {
+        stage = EVENT.UPDATE;
+
+        if (IsFacingDoor() && !IsDoorBlocked())
+        {
+            OpenDoor();
+        }
+    }
     public virtual void Exit() { stage = EVENT.EXIT; }
 
     public State Process()
@@ -66,5 +68,30 @@ public class State : MonoBehaviour
     public bool IsPlayerBehind()
     {
         return bfov.canSeePlayer;
+    }
+
+    public bool IsFacingDoor()
+    {
+        return doorStateHandler.IsFacingDoor();
+    }
+
+    public bool IsDoorBlocked()
+    {
+        return doorStateHandler.IsDoorBlocked();
+    }
+
+    public void OpenDoor()
+    {
+        doorStateHandler.OpenDoor();
+    }
+
+    public void BreakChairBlockingDoor()
+    {
+        doorStateHandler.BreakChairBlockingDoor();
+    }
+
+    public float GetDistanceFromDoor()
+    {
+        return doorStateHandler.DistanceFromDoor();
     }
 }

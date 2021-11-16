@@ -42,9 +42,6 @@ public class BackFieldOfView : MonoBehaviour
 
         if (rangeChecks.Length != 0)
         {
-
-            Debug.Log("ha");
-
             Transform target = rangeChecks[0].transform;
 
             Vector3 directionToTarget = (target.position - transform.position).normalized;
@@ -66,7 +63,6 @@ public class BackFieldOfView : MonoBehaviour
             }
             else
             {
-                Debug.Log(3);
                 canSeePlayer = false;
             }
         }

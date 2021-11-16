@@ -17,7 +17,7 @@ public class AI : MonoBehaviour
         anim = this.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        currentState = new Patrol(this.gameObject, agent, anim, player);
+        currentState = new Start(this.gameObject, agent, anim, player);
     }
 
     // Update is called once per frame

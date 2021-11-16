@@ -13,7 +13,7 @@ public class Patrol : State
     private bool blocking;
     public Patrol(GameObject npc, NavMeshAgent agent, Animator anim, Transform player) : base(npc, agent, anim, player)
     {
-        name = STATE.PATROL;
+        name = EState.PATROL;
         agent.speed = 5;
         agent.isStopped = false;
         waypointManager = GameObject.FindGameObjectWithTag("WaypointManager").GetComponent<WaypointManager>();
@@ -29,6 +29,7 @@ public class Patrol : State
 
     public override void Update()
     {
+        base.Update();
 
         if (CanSeePlayer())
         {
@@ -42,13 +43,19 @@ public class Patrol : State
             base.Exit();
         }
 
+        if (IsFacingDoor() && IsDoorBlocked())
+        {
+            nextState = new Break(npc, agent, anim, player, name);
+            base.Exit();
+        }
+
+
         if (agent.remainingDistance < 1)
         {
             currentWaypoint = waypointManager.GetNextWaypoint();
         }
 
         agent.SetDestination(currentWaypoint.transform.position);
-        HandleDoor();
     }
 
     public override void Exit()
@@ -67,10 +74,14 @@ public class Patrol : State
         {
             if (hit.transform.tag == "Door")
             {
-                Interactable door = hit.transform.gameObject.GetComponent<Interactable>();
+                GameObject door = hit.transform.gameObject;
+
+                IsDoorBlocked isDoorBlocked = door.GetComponent<IsDoorBlocked>();
+
+                Interactable interactable = door.GetComponentInChildren<Interactable>();
                 if (Vector3.Distance(this.npc.transform.transform.position, door.gameObject.transform.position) < 2f)
                 {
-                    door.openDoor();
+                    interactable.openDoor();
                 }
 
             }
