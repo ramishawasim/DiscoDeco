@@ -82,6 +82,7 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
+        doorIsBlocked = doorIsBlocked;
         frames++;
         if (frames == 20)
         { //If the remainder of the current frame divided by 10 is 0 run the function.
