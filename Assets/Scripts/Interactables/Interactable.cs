@@ -31,6 +31,7 @@ public class Interactable : MonoBehaviour
     private bool doorIsClosed;
     public bool doorIsBlocked;
     private int notes;
+    private GameObject[] getCount;
 
     private int frames = 0;
 
@@ -148,7 +149,9 @@ public class Interactable : MonoBehaviour
     void pickUpObject()
     {
         isHolding = PlayerPrefs.GetInt("isHolding");
-        if (isHolding == 0)
+        getCount = GameObject.FindGameObjectsWithTag ("Chair");
+
+        if (isHolding == 0 && getCount.Length == PlayerPrefs.GetInt("chairCount"))
         {
             player.transform.Find("HoldChair").gameObject.SetActive(true);
             PlayerPrefs.SetInt("isHolding", 1);
@@ -178,7 +181,9 @@ public class Interactable : MonoBehaviour
     void blockDoor()
     {
         isHolding = PlayerPrefs.GetInt("isHolding");
-        if (isHolding == 1 && doorIsClosed && !doorIsBlocked)
+        getCount = GameObject.FindGameObjectsWithTag ("Chair");
+
+        if (isHolding == 1 && doorIsClosed && !doorIsBlocked && getCount.Length == PlayerPrefs.GetInt("chairCount"))
         {
             sound.Play();
             parent.transform.Find("blockChair").gameObject.SetActive(true);
@@ -302,7 +307,9 @@ public class Interactable : MonoBehaviour
     void placeChair()
     {
         isHolding = PlayerPrefs.GetInt("isHolding");
-        if (isHolding == 1 && parent.transform.Find("InteractableBase").gameObject.activeSelf)
+        getCount = GameObject.FindGameObjectsWithTag ("Chair");
+        
+        if (isHolding == 1 && parent.transform.Find("InteractableBase").gameObject.activeSelf && getCount.Length == PlayerPrefs.GetInt("chairCount"))
         {
             player.transform.Find("HoldChair").gameObject.SetActive(false);
             PlayerPrefs.SetInt("isHolding", 0);

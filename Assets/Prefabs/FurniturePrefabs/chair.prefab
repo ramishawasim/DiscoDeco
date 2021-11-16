@@ -116,6 +116,8 @@ MonoBehaviour:
   interactType: 0
   keypad: {fileID: 0}
   parent: {fileID: 8179890621774667365}
+  sound: {fileID: 0}
+  noteMessage: {fileID: 0}
   doorIsBlocked: 0
 --- !u!54 &6976692458319772460
 Rigidbody:
@@ -144,7 +146,7 @@ GameObject:
   - component: {fileID: 8849326439885817055}
   m_Layer: 0
   m_Name: chair
-  m_TagString: Untagged
+  m_TagString: Chair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

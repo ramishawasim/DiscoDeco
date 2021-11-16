@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 //Player Reset functionality
 public class Reset : MonoBehaviour
 {
+    public GameObject keypad;
     public float threshold = -50f;
     public Animator animator;
     private PlayerController playerController;
     private CharacterController characterController;
-
+    
     private void Start()
     {
         animator = animator.GetComponent<Animator>();  
@@ -23,7 +24,6 @@ public class Reset : MonoBehaviour
     {
         if (transform.position.y < threshold)
         {
-            animator.SetTrigger("onDeath");
             StartCoroutine(WaitForAnimation(animator));
         }
     }
@@ -32,7 +32,6 @@ public class Reset : MonoBehaviour
     {
         if (player.gameObject.tag == "Enemies")
         {
-            animator.SetTrigger("onDeath");
             StartCoroutine(WaitForAnimation(animator));
         }
     }
@@ -44,6 +43,8 @@ public class Reset : MonoBehaviour
 
     IEnumerator WaitForAnimation(Animator anim)
     {
+        animator.SetTrigger("onDeath");
+        keypad.SetActive(false);
         playerController.enabled = false;
         characterController.enabled = false;
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+anim.GetCurrentAnimatorStateInfo(0).normalizedTime);

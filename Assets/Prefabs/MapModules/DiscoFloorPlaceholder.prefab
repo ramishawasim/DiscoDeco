@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 364474257603046550}
   m_Layer: 0
   m_Name: DiscoFloorPlaceholder
-  m_TagString: Untagged
+  m_TagString: DanceFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 58
