@@ -31,6 +31,7 @@ public class Patrol : State
     {
         base.Update();
 
+
         if (CanSeePlayer())
         {
             nextState = new Pursue(npc, agent, anim, player);
@@ -49,6 +50,12 @@ public class Patrol : State
             base.Exit();
         }
 
+        if (IsFacingDoor() && IsDoorBlocked() && GetDistanceFromDoor() < 2f)
+        {
+            nextState = new Break(npc, agent, anim, player, name);
+            stage = EVENT.EXIT;
+        }
+
 
         if (agent.remainingDistance < 1)
         {
@@ -62,29 +69,5 @@ public class Patrol : State
     {
         // anim.SetBool("onWalk", false);
         base.Exit();
-    }
-
-    private void HandleDoor()
-    {
-        RaycastHit hit;
-
-        Debug.DrawRay(this.npc.transform.position + Vector3.up, this.npc.transform.TransformDirection(Vector3.forward) * 100, Color.yellow);
-
-        if (Physics.Raycast(this.npc.transform.position, this.npc.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-        {
-            if (hit.transform.tag == "Door")
-            {
-                GameObject door = hit.transform.gameObject;
-
-                IsDoorBlocked isDoorBlocked = door.GetComponent<IsDoorBlocked>();
-
-                Interactable interactable = door.GetComponentInChildren<Interactable>();
-                if (Vector3.Distance(this.npc.transform.transform.position, door.gameObject.transform.position) < 2f)
-                {
-                    interactable.openDoor();
-                }
-
-            }
-        }
     }
 }

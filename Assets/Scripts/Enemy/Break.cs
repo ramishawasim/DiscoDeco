@@ -10,11 +10,21 @@ public class Break : State
     private float timer;
     private float endTime;
 
+    private Vector3 playerLastKnownPosition = Vector3.zero;
+
     public Break(GameObject npc, NavMeshAgent agent, Animator anim, Transform player, EState stateFrom) : base(npc, agent, anim, player)
     {
         name = EState.BREAK;
         this.stateFrom = stateFrom;
         endTime = Random.Range(3f, 5f);
+    }
+
+    public Break(GameObject npc, NavMeshAgent agent, Animator anim, Transform player, EState stateFrom, Vector3 playerLastKnownPosition) : base(npc, agent, anim, player)
+    {
+        name = EState.BREAK;
+        this.stateFrom = stateFrom;
+        endTime = Random.Range(3f, 5f);
+        this.playerLastKnownPosition = playerLastKnownPosition;
     }
 
     public override void Enter()
@@ -35,7 +45,15 @@ public class Break : State
         {
             BreakChairBlockingDoor();
             OpenDoor();
-            nextState = StateFactory.CreateState(stateFrom, npc, agent, anim, player);
+            if (playerLastKnownPosition == Vector3.zero)
+            {
+                nextState = StateFactory.CreateState(stateFrom, npc, agent, anim, player);
+            }
+            else
+            {
+                nextState = StateFactory.CreateState(stateFrom, npc, agent, anim, player, playerLastKnownPosition);
+            }
+
             base.Exit();
         }
     }
