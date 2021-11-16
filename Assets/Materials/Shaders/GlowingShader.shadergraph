@@ -1107,7 +1107,7 @@
     },
     "m_Name": "EmissionBrightness",
     "m_DefaultReferenceName": "Vector1_f665efff932248379ec14a32ce88fe73",
-    "m_OverrideReferenceName": "_EmissionBrightness",
+    "m_OverrideReferenceName": "_DitherAlpha",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
