@@ -23,47 +23,40 @@ public class Pursue : State
     {
         base.Update();
 
-
-        // Debug.Log(Vector3.Distance(npc.transform.position, player.position));
-
-
-        if (!IsPlayerBehind() || !CanSeePlayer() /*&& PlayerPrefs.GetInt("isHiding") == 0*/)
+        if (!IsPlayerBehind() || !CanSeePlayer())
         {
             playerLastKnownPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         }
 
         agent.SetDestination(player.position);
 
-        if (agent.hasPath)
+        if (player.tag == "Hide")
+        {
+            nextState = new Patrol(npc, agent, anim, player);
+            base.Exit();
+        }
+        else if (agent.hasPath)
         {
             if (Vector3.Distance(npc.transform.position, player.position) < 1f)
             {
                 nextState = new Attack(npc, agent, anim, player);
-                stage = EVENT.EXIT;
+                base.Exit();
             }
             else if (IsFacingDoor() && IsDoorBlocked() && GetDistanceFromDoor() < 2f)
             {
                 nextState = new Break(npc, agent, anim, player, name);
-                stage = EVENT.EXIT;
+                base.Exit();
             }
-            else if ((!IsPlayerBehind() || !CanSeePlayer()) && player.tag != "Hide")
+            else if ((!IsPlayerBehind() && !CanSeePlayer()))
             {
                 nextState = new Wander(npc, agent, anim, player, playerLastKnownPosition);
-                stage = EVENT.EXIT;
-            }
-            else
-            {
-                nextState = new Patrol(npc, agent, anim, player);
-                stage = EVENT.EXIT;
+                base.Exit();
             }
         }
     }
 
     public override void Exit()
     {
-        // anim.SetBool("onWalk", false);
-        // agent.isStopped = true;
-        // agent.speed = 0;
         base.Exit();
     }
 }

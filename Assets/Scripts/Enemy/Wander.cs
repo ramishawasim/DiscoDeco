@@ -35,6 +35,7 @@ public class Wander : State
     public override void Update()
     {
         base.Update();
+        Debug.Log("Wandering");
 
         if (CanSeePlayer())
         {
@@ -45,13 +46,13 @@ public class Wander : State
         if (IsFacingDoor() && IsDoorBlocked() && GetDistanceFromDoor() < 2f)
         {
             nextState = new Break(npc, agent, anim, player, name);
-            stage = EVENT.EXIT;
+            base.Exit();
         }
 
         if (timer >= timeOut)
         {
             nextState = new Patrol(npc, agent, anim, player);
-            stage = EVENT.EXIT;
+            base.Exit();
         }
 
         if (!CanSeePlayer())
@@ -69,26 +70,9 @@ public class Wander : State
             {
                 timer += Time.deltaTime;
 
-                // wanderTarget += new Vector3(Random.Range(-1f, 1f) * WanderJitter, 0, Random.Range(-1f, 1f) * WanderJitter);
-
-                // wanderTarget.Normalize();
-                // wanderTarget *= wanderRadius;
-
-                // Vector3 targetLocal = wanderTarget + new Vector3(0, 0, wanderDistance);
-                // Vector3 targetWorld = npc.transform.InverseTransformDirection(targetLocal);
-
-                // Vector3 targetWorld = new Vector3(player.position.x + Random.Range(-1f, 1f), player.position.y, player.position.z + Random.Range(-3f, 3f));
-
                 Vector3 targetWorld = player.position;
 
-                // NavMeshPath navMeshPath = new NavMeshPath();
-
-                // agent.CalculatePath(targetWorld, navMeshPath);
-
-                // if (navMeshPath.status == NavMeshPathStatus.PathPartial)
-                // {
                 agent.SetDestination(targetWorld);
-                // }
             }
         }
     }

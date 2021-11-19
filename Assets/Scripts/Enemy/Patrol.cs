@@ -53,7 +53,7 @@ public class Patrol : State
         if (IsFacingDoor() && IsDoorBlocked() && GetDistanceFromDoor() < 2f)
         {
             nextState = new Break(npc, agent, anim, player, name);
-            stage = EVENT.EXIT;
+            base.Exit();
         }
 
 
