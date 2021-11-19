@@ -22,6 +22,7 @@ public class Pursue : State
     public override void Update()
     {
         base.Update();
+        Debug.Log("Pursing");
 
         if (!IsPlayerBehind() || !CanSeePlayer())
         {
@@ -32,6 +33,7 @@ public class Pursue : State
 
         if (player.tag == "Hide")
         {
+            Debug.Log("ok");
             nextState = new Patrol(npc, agent, anim, player);
             base.Exit();
         }
@@ -49,6 +51,7 @@ public class Pursue : State
             }
             else if ((!IsPlayerBehind() && !CanSeePlayer()))
             {
+                Debug.Log("jump");
                 nextState = new Wander(npc, agent, anim, player, playerLastKnownPosition);
                 base.Exit();
             }

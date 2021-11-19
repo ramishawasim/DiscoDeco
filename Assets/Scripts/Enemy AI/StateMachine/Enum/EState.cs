@@ -1,0 +1,4 @@
+public enum EState
+{
+    IDLE, PATROL, PURSUE, BREAK, WANDER, ATTACK, START, DANCE
+};

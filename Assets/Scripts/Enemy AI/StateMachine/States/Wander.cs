@@ -37,42 +37,49 @@ public class Wander : State
         base.Update();
         Debug.Log("Wandering");
 
-        if (CanSeePlayer())
-        {
-            nextState = new Pursue(npc, agent, anim, player);
-            base.Exit();
-        }
-
-        if (IsFacingDoor() && IsDoorBlocked() && GetDistanceFromDoor() < 2f)
-        {
-            nextState = new Break(npc, agent, anim, player, name);
-            base.Exit();
-        }
-
-        if (timer >= timeOut)
+        if (player.tag == "Hide")
         {
             nextState = new Patrol(npc, agent, anim, player);
             base.Exit();
         }
-
-        if (!CanSeePlayer())
+        else
         {
-            if (!reachedLastKnownLocation)
+            if (CanSeePlayer())
             {
-                agent.SetDestination(playerLastKnownPosition);
-
-                if (Vector3.Distance(npc.transform.position, playerLastKnownPosition) < 5f)
-                {
-                    reachedLastKnownLocation = true;
-                }
+                nextState = new Pursue(npc, agent, anim, player);
+                base.Exit();
             }
-            else
+            else if (IsFacingDoor() && IsDoorBlocked() && GetDistanceFromDoor() < 2f)
             {
-                timer += Time.deltaTime;
+                nextState = new Break(npc, agent, anim, player, name);
+                base.Exit();
+            }
 
-                Vector3 targetWorld = player.position;
+            if (timer >= timeOut)
+            {
+                nextState = new Patrol(npc, agent, anim, player);
+                base.Exit();
+            }
 
-                agent.SetDestination(targetWorld);
+            if (!CanSeePlayer())
+            {
+                if (!reachedLastKnownLocation)
+                {
+                    agent.SetDestination(playerLastKnownPosition);
+
+                    if (Vector3.Distance(npc.transform.position, playerLastKnownPosition) < 5f)
+                    {
+                        reachedLastKnownLocation = true;
+                    }
+                }
+                else
+                {
+                    timer += Time.deltaTime;
+
+                    Vector3 targetWorld = player.position;
+
+                    agent.SetDestination(targetWorld);
+                }
             }
         }
     }
