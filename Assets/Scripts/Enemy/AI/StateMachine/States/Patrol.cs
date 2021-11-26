@@ -14,8 +14,6 @@ public class Patrol : State
     public Patrol(GameObject npc, NavMeshAgent agent, Animator anim, Transform player, EnemyAudioManager enemyAudioManager) : base(npc, agent, anim, player, enemyAudioManager)
     {
         name = EState.PATROL;
-        agent.speed = 5;
-        agent.isStopped = false;
         waypointManager = GameObject.FindGameObjectWithTag("WaypointManager").GetComponent<WaypointManager>();
         waypointManager.Init();
     }
@@ -23,6 +21,8 @@ public class Patrol : State
     public override void Enter()
     {
         currentWaypoint = waypointManager.CalibrateAndGetNearestWaypoint(this.npc.transform);
+        agent.speed = 5;
+        agent.isStopped = false;
         anim.SetBool("onWalk", true);
         base.Enter();
     }

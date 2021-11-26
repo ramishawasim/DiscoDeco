@@ -12,7 +12,7 @@ public class WaitBeforePursue : State
     public WaitBeforePursue(GameObject npc, NavMeshAgent agent, Animator anim, Transform player, EnemyAudioManager enemyAudioManager) : base(npc, agent, anim, player, enemyAudioManager)
     {
         Debug.Log("Entered Waiting!");
-        name = EState.PATROL;
+        name = EState.WAIT_BEFORE_PURSUE;
         waitTime = Random.Range(1f, 2f);
         timeEnteredState = Time.time;
     }

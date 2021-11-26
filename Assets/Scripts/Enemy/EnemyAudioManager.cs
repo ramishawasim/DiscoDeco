@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyAudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     public AudioSource mooSound;
     public AudioSource grumbleSound;
 

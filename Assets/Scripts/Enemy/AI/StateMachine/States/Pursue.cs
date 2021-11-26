@@ -9,13 +9,13 @@ public class Pursue : State
     public Pursue(GameObject npc, NavMeshAgent agent, Animator anim, Transform player, EnemyAudioManager enemyAudioManager) : base(npc, agent, anim, player, enemyAudioManager)
     {
         name = EState.PURSUE;
-        agent.speed = 6.75f;
-        agent.isStopped = false;
     }
 
     public override void Enter()
     {
         anim.SetBool("onWalk", true);
+        agent.speed = 6.75f;
+        agent.isStopped = false;
         base.Enter();
     }
 
