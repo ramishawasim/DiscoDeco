@@ -7,13 +7,22 @@ using Cinemachine;
 public class MouseLock : MonoBehaviour
 {
     public float maxCameraSpeed = 150f;
+    public float constantCameraSpeed = 50f;
     public CinemachineFreeLook camera;
 
     void Update()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.lockState = CursorLockMode.Confined;
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButton(0))
+        {
+            camera.m_XAxis.Value = camera.m_XAxis.Value - (constantCameraSpeed * Time.deltaTime);
+        }
+        else if (Input.GetMouseButton(1))
+        {
+            camera.m_XAxis.Value = camera.m_XAxis.Value + (constantCameraSpeed * Time.deltaTime);
+        }
+        else if (Input.GetMouseButtonDown(2))
         {
             camera.m_XAxis.m_MaxSpeed = maxCameraSpeed;
         }

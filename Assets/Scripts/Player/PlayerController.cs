@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private InputActionReference jumpControl;
     // [SerializeField]
-    private float playerSpeed;
+    public float playerSpeed;
     // [SerializeField]
     private float normalSpeed = 7.5f;
     private float slowSpeed = 5f;
@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
     private Transform cameraMainTransform;
     private int isHolding;
+    private int isDancing;
     private Light flashLight;
 
     private void OnEnable()
@@ -51,17 +52,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        isDancing = PlayerPrefs.GetInt("isDancing");
+        if (isDancing == 1)
+        {
+            playerSpeed = 0;
+        }
+
         isHolding = PlayerPrefs.GetInt("isHolding");
         if (isHolding == 1)
         {
             playerSpeed = slowSpeed;
-            // flashLight.shadowNearPlane = 0.25f;
         }
-        else{
+        else
+        {
             playerSpeed = normalSpeed;
-            // flashLight.shadowNearPlane = 0.1f;
         }
-        
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
