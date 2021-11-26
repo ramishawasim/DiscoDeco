@@ -24,6 +24,8 @@ public class SetInitial : MonoBehaviour
         //Set "chairCount" to getCount.Length
         getCount = GameObject.FindGameObjectsWithTag("Chair");
         PlayerPrefs.SetInt("chairCount", getCount.Length);
+        //Set "isDancing" to 0 at start
+        PlayerPrefs.SetInt("isDancing", 0);
     }
 }
 
