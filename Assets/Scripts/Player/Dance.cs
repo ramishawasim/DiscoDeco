@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Dance : MonoBehaviour
 {
+    private InputActionReference movementControl;
     private GameObject playerAnimator;
     private Animator animator;
     private PlayerController playerController;
     private CharacterController characterController;
+    private Transform cameraMainTransform;
+    private float playerSpeed;
     private bool hasInteracted;
 
     void Start()
@@ -18,6 +22,7 @@ public class Dance : MonoBehaviour
 
         playerController = this.GetComponent<PlayerController>();
         characterController = this.GetComponent<CharacterController>();
+        cameraMainTransform = Camera.main.transform;
         hasInteracted = false;
     }
 
@@ -34,7 +39,7 @@ public class Dance : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         hasInteracted = true;
-                        playerController.enabled = false;
+                        PlayerPrefs.SetInt("isDancing", 1);
                         animator.SetBool("onWalk", false);
                         animator.SetTrigger("onDance");
                         StartCoroutine(WaitForAnimation(animator));
@@ -47,8 +52,9 @@ public class Dance : MonoBehaviour
     IEnumerator WaitForAnimation(Animator anim)
     {
         // yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
-        yield return new WaitForSeconds(1.69f);
-        playerController.enabled = true;
+        yield return new WaitForSeconds(2f);
+        PlayerPrefs.SetInt("isDancing", 0);
+
         hasInteracted = false;
     }
 }

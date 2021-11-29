@@ -62,9 +62,11 @@ public class Interactable : MonoBehaviour
         parent = parent;
         doorIsClosed = true;
         doorIsBlocked = false;
+
+        InvokeRepeating("DitherEffect", 0f, 0.2f);
     }
 
-    void FrameUpdate()
+    void DitherEffect()
     {
         if (hasInteracted == false)
         {
@@ -74,6 +76,7 @@ public class Interactable : MonoBehaviour
             {
                 if (interactableCollider.tag == "Player")
                 {
+                    Debug.Log("Dither Object");
                     float dist = Vector3.Distance(player.transform.position, this.transform.position);
                     glowDistance = 1 - (dist / (interactableRadius));
                     glowMaterial.SetFloat("_DitherAlpha", glowDistance);
@@ -85,13 +88,6 @@ public class Interactable : MonoBehaviour
     void Update()
     {
         doorIsBlocked = doorIsBlocked;
-        frames++;
-        if (frames == 20)
-        { //If the remainder of the current frame divided by 10 is 0 run the function.
-            frames = 0;
-            FrameUpdate();
-        }
-
         if (hasInteracted == false)
         {
             //Within a specific range, interact with item
