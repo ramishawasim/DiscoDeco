@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 1.5
+  interactRadius: 2
   interactType: 0
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 1.5
+  interactRadius: 2
   interactType: 1
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
@@ -819,7 +819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5782364684289237300
 Transform:
   m_ObjectHideFlags: 0

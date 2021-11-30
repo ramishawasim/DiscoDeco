@@ -76,7 +76,6 @@ public class Interactable : MonoBehaviour
             {
                 if (interactableCollider.tag == "Player")
                 {
-                    Debug.Log("Dither Object");
                     float dist = Vector3.Distance(player.transform.position, this.transform.position);
                     glowDistance = 1 - (dist / (interactableRadius));
                     glowMaterial.SetFloat("_DitherAlpha", glowDistance);

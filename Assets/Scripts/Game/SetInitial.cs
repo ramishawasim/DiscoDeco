@@ -10,7 +10,7 @@ public class SetInitial : MonoBehaviour
     // Setting initial PlayerPrefs
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteAll();
         //Set "isHolding" to 0 at start
         PlayerPrefs.SetInt("isHolding", 0);
         //Set "isHiding" to 0 at start

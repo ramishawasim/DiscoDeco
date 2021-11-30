@@ -385,9 +385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Play Again
-
-'
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aad11993f793946ba9514753ca877d18, type: 2}
   m_sharedMaterial: {fileID: -4455293785606964016, guid: aad11993f793946ba9514753ca877d18, type: 2}
@@ -732,7 +730,7 @@ GameObject:
   - component: {fileID: 907939775}
   - component: {fileID: 907939778}
   m_Layer: 5
-  m_Name: PlayAgain
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
