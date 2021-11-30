@@ -69,4 +69,9 @@ public class DoorStateHandler : MonoBehaviour
         }
     }
 
+    public void PlayBreakingSound()
+    {
+        door.transform.parent.parent.GetComponent<SmashDoorSound>().PlaySound();
+    }
+
 }

@@ -7,8 +7,7 @@ public class Break : State
 {
     private EState stateFrom;
 
-    private float timer;
-    private float endTime;
+    private float startedBreaking, delay;
 
     private Vector3 playerLastKnownPosition = Vector3.zero;
 
@@ -16,14 +15,12 @@ public class Break : State
     {
         name = EState.BREAK;
         this.stateFrom = stateFrom;
-        endTime = Random.Range(3f, 5f);
     }
 
     public Break(GameObject npc, NavMeshAgent agent, Animator anim, Transform player, EnemyAudioManager enemyAudioManager, EState stateFrom, Vector3 playerLastKnownPosition) : base(npc, agent, anim, player, enemyAudioManager)
     {
         name = EState.BREAK;
         this.stateFrom = stateFrom;
-        endTime = Random.Range(3f, 5f);
         this.playerLastKnownPosition = playerLastKnownPosition;
     }
 
@@ -33,6 +30,9 @@ public class Break : State
         base.Enter();
         agent.isStopped = true;
         agent.speed = 0;
+        startedBreaking = Time.time;
+        delay = Random.Range(3f, 5f);
+        Debug.Log("entering " + Time.time);
     }
 
     public override void Update()
@@ -41,11 +41,13 @@ public class Break : State
 
         Debug.Log("Breaking");
 
+        Debug.Log(Time.time + " " + startedBreaking + " " + delay);
+
         enemyAudioManager.PlayMooSound();
 
-        timer += Time.deltaTime;
+        PlayBreakingSound();
 
-        if (timer >= endTime)
+        if (Time.time - startedBreaking > delay)
         {
             BreakChairBlockingDoor();
             OpenDoor();

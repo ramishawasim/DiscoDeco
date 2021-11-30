@@ -137,6 +137,8 @@ GameObject:
   m_Component:
   - component: {fileID: 244502815289999570}
   - component: {fileID: 8027552761874970851}
+  - component: {fileID: 1128375638640800962}
+  - component: {fileID: 4373946372048439480}
   m_Layer: 4
   m_Name: door_to_darkness
   m_TagString: Untagged
@@ -176,6 +178,116 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorIsBlocked: 0
+--- !u!114 &1128375638640800962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589820571295013480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5182b2c194f1ad41a7d6311ec2cc5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTimeOutInSecondsFrom: 0
+  soundTimeOutInSecondsTo: 0
+--- !u!82 &4373946372048439480
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589820571295013480}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8c358ddec548cee45a51eb7861ba5d15, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 2.19
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 3.35
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0.317
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.375
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1482208287158774766
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3079592164636423123}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0.43}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.415}
   m_LocalScale: {x: 0.5, y: 0.6666667, z: 0.45454544}
   m_Children:
   - {fileID: 6509005792585006665}
@@ -318,7 +430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4147762413450049370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5414236, y: 0.18382168, z: -1.6149819}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1.5, z: 2.42}
   m_Children: []
   m_Father: {fileID: 7821162171454572660}
@@ -401,8 +513,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 1
-  interactType: 2
+  interactRadius: 2
+  interactType: 0
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
   sound: {fileID: 1616194211349052392}
@@ -431,8 +543,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4840844578782565800}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7707118, y: -0.12254779, z: 0.7670826}
-  m_LocalScale: {x: 0.5, y: 0.6666667, z: 0.45454544}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.6666667, z: 0.465}
   m_Children:
   - {fileID: 2328685263155104309}
   - {fileID: 2290873735741068005}
@@ -467,7 +579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7630744014702234981}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5414236, y: 0.18382168, z: -1.6875819}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1.5, z: 2.2}
   m_Children: []
   m_Father: {fileID: 7821162171454572660}
@@ -714,8 +826,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 1
-  interactType: 3
+  interactRadius: 2
+  interactType: 1
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
   sound: {fileID: 1616194211349052392}
@@ -746,7 +858,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8946014050693907189}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5414236, y: 0.18382168, z: -1.6875819}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1.5, z: 2.2}
   m_Children: []
   m_Father: {fileID: 7821162171454572660}
@@ -819,7 +931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5782364684289237300
 Transform:
   m_ObjectHideFlags: 0
@@ -913,15 +1025,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.06666668
-      objectReference: {fileID: 0}
-    - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
-      propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1015,6 +1127,18 @@ PrefabInstance:
       propertyPath: interactRadius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8784937201676003348, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 1616194211349052392}
+    - target: {fileID: 8784937201676003348, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 589820571295013480}
+    - target: {fileID: 8784937201676003348, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: interactRadius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8860573009999598832, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_Name
       value: InteractableBase
@@ -1064,6 +1188,22 @@ PrefabInstance:
     - target: {fileID: 6047513065374373701, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229348644661159391, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 589820571295013480}
+    - target: {fileID: 6229348644661159391, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: interactType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229348644661159391, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: interactRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229348644661159391, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: interactableRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6343905841975565549, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: parent

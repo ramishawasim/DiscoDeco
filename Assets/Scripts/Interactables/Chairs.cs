@@ -63,7 +63,6 @@ public class Chairs : MonoBehaviour
 
     void DitherEffect()
     {
-        // Debug.Log("Dither Chair");
         if (hasInteracted == false)
         {
             //Within a specific range, activate interactable glow

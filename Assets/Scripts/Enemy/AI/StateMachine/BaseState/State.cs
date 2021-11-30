@@ -46,27 +46,6 @@ public class State
     public virtual void Update()
     {
         stage = EVENT.UPDATE;
-
-        if (IsFacingDoor() && GetDistanceFromDoor() < 2f)
-        {
-            if (IsDoorBlocked())
-            {
-                switch (name)
-                {
-                    case EState.WANDER:
-                        break;
-                    default:
-                        nextState = new Break(npc, agent, anim, player, enemyAudioManager, name);
-                        Exit();
-                        break;
-
-                }
-            }
-            else
-            {
-                OpenDoor();
-            }
-        }
     }
     public virtual void Exit() { stage = EVENT.EXIT; }
 
@@ -116,5 +95,10 @@ public class State
     public float GetDistanceFromDoor()
     {
         return doorStateHandler.DistanceFromDoor();
+    }
+
+    public void PlayBreakingSound()
+    {
+        doorStateHandler.PlayBreakingSound();
     }
 }

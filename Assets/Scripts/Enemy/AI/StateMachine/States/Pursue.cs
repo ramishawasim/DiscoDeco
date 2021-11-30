@@ -27,6 +27,19 @@ public class Pursue : State
 
         Debug.Log("Pursing");
 
+        if (IsFacingDoor() && GetDistanceFromDoor() < 2f)
+        {
+            if (IsDoorBlocked())
+            {
+                nextState = new Break(npc, agent, anim, player, enemyAudioManager, name);
+                Exit();
+            }
+            else
+            {
+                OpenDoor();
+            }
+        }
+
         if (!IsPlayerBehind() || !CanSeePlayer())
         {
             playerLastKnownPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
