@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6543aea411c1afe4cbd667ab9cad2d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableRadius: 5.25
-  interactRadius: 2
-  interactType: 4
+  interactableRadius: 10
+  interactRadius: 2.5
+  interactType: 2
   keypad: {fileID: 0}
   parent: {fileID: 0}
   sound: {fileID: 0}

@@ -401,8 +401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 1
-  interactType: 2
+  interactRadius: 1.5
+  interactType: 0
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
   sound: {fileID: 1616194211349052392}
@@ -713,8 +713,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 1
-  interactType: 3
+  interactRadius: 1.5
+  interactType: 1
   keypad: {fileID: 0}
   parent: {fileID: 589820571295013480}
   sound: {fileID: 1616194211349052392}
@@ -817,15 +817,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.06666668
-      objectReference: {fileID: 0}
-    - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
-      propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1219130281524707550, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_LocalPosition.y
@@ -919,6 +919,18 @@ PrefabInstance:
       propertyPath: interactRadius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8784937201676003348, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 1616194211349052392}
+    - target: {fileID: 8784937201676003348, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 589820571295013480}
+    - target: {fileID: 8784937201676003348, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: interactRadius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8860573009999598832, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_Name
       value: InteractableBase
@@ -968,6 +980,22 @@ PrefabInstance:
     - target: {fileID: 6047513065374373701, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229348644661159391, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 589820571295013480}
+    - target: {fileID: 6229348644661159391, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: interactType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229348644661159391, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: interactRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229348644661159391, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
+      propertyPath: interactableRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6343905841975565549, guid: cd7eab896417bc24d990fe79498729a4, type: 3}
       propertyPath: parent

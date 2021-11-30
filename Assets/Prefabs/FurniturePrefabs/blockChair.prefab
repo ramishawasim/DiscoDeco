@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7525613477174090282}
   - component: {fileID: 8082865074454641467}
   - component: {fileID: 4583190319924493120}
-  - component: {fileID: 6343905841975565549}
+  - component: {fileID: 6229348644661159391}
   - component: {fileID: 4808695319452332556}
   m_Layer: 0
   m_Name: chair
@@ -99,7 +99,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1238218227891777710, guid: 8466004b32b356841bd724389a46b98a, type: 3}
---- !u!114 &6343905841975565549
+--- !u!114 &6229348644661159391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,14 +108,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3211063239468449065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6543aea411c1afe4cbd667ab9cad2d65, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bac9cb4fccaa244ba66c2d4e722683e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableRadius: 7.5
-  interactRadius: 1
+  interactableRadius: 10
+  interactRadius: 1.5
   interactType: 0
   keypad: {fileID: 0}
-  parentDoor: {fileID: 0}
+  parent: {fileID: 0}
+  sound: {fileID: 0}
+  noteMessage: {fileID: 0}
 --- !u!54 &4808695319452332556
 Rigidbody:
   m_ObjectHideFlags: 0
