@@ -54,6 +54,11 @@ public class DoorStateHandler : MonoBehaviour
         interactable.openDoor();
     }
 
+    public void PlayBreakingSound()
+    {
+        door.transform.parent.parent.GetComponent<SmashDoorSound>().PlaySound();
+    }
+
     public void BreakChairBlockingDoor()
     {
         foreach (Transform child in door.transform.parent.parent)

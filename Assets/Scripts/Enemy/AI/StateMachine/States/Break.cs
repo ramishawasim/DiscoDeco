@@ -8,6 +8,7 @@ public class Break : State
     private EState stateFrom;
 
     private float timer;
+    private float startedBreaking, delay;
     private float endTime;
 
     private Vector3 playerLastKnownPosition = Vector3.zero;
@@ -31,6 +32,8 @@ public class Break : State
     {
         anim.SetTrigger("onPunch");
         base.Enter();
+        startedBreaking = Time.time;
+        delay = Random.Range(3f, 5f);
         agent.isStopped = true;
         agent.speed = 0;
     }
@@ -43,9 +46,9 @@ public class Break : State
 
         enemyAudioManager.PlayMooSound();
 
-        timer += Time.deltaTime;
+        PlayBreakingSound();
 
-        if (timer >= endTime)
+        if (Time.time - startedBreaking > delay)
         {
             BreakChairBlockingDoor();
             OpenDoor();
