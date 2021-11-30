@@ -33,6 +33,19 @@ public class Patrol : State
 
         enemyAudioManager.PlayMooSound();
 
+        if (IsFacingDoor() && GetDistanceFromDoor() < 2f)
+        {
+            if (IsDoorBlocked())
+            {
+                nextState = new Break(npc, agent, anim, player, enemyAudioManager, name);
+                Exit();
+            }
+            else
+            {
+                OpenDoor();
+            }
+        }
+
         if (CanSeePlayer())
         {
             nextState = new Pursue(npc, agent, anim, player, enemyAudioManager);

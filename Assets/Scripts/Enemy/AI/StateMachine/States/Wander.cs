@@ -37,6 +37,19 @@ public class Wander : State
         base.Update();
         Debug.Log("Wandering");
 
+        if (IsFacingDoor() && GetDistanceFromDoor() < 2f)
+        {
+            if (IsDoorBlocked())
+            {
+                nextState = new Break(npc, agent, anim, player, enemyAudioManager, name);
+                Exit();
+            }
+            else
+            {
+                OpenDoor();
+            }
+        }
+
         enemyAudioManager.PlayMooSound();
 
         if (player.tag == "Hide")
