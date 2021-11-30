@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5339443609049191178}
   - component: {fileID: 5928356467479835163}
   - component: {fileID: 2158096588782334560}
-  - component: {fileID: 8819120066566772173}
+  - component: {fileID: 8547392842291632429}
   - component: {fileID: 6976692458319772460}
   m_Layer: 0
   m_Name: chair
@@ -99,7 +99,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1238218227891777710, guid: 8466004b32b356841bd724389a46b98a, type: 3}
---- !u!114 &8819120066566772173
+--- !u!114 &8547392842291632429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,17 +108,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073588687538041865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6543aea411c1afe4cbd667ab9cad2d65, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bac9cb4fccaa244ba66c2d4e722683e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableRadius: 7.5
-  interactRadius: 1
+  interactableRadius: 10
+  interactRadius: 1.5
   interactType: 0
   keypad: {fileID: 0}
   parent: {fileID: 8179890621774667365}
   sound: {fileID: 0}
   noteMessage: {fileID: 0}
-  doorIsBlocked: 0
 --- !u!54 &6976692458319772460
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -234,6 +233,14 @@ PrefabInstance:
       propertyPath: interactRadius
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8784937201676003348, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 8179890621774667365}
+    - target: {fileID: 8784937201676003348, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
+      propertyPath: interactType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8860573009999598832, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
       propertyPath: m_Name
       value: InteractableBase
@@ -242,7 +249,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5613070986588198546, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c443a1641a789904b89637d5ad2cf960, type: 3}
 --- !u!4 &5358748512916860518 stripped
 Transform:

@@ -12,6 +12,7 @@ public class Reset : MonoBehaviour
     public Animator animator;
     private PlayerController playerController;
     private CharacterController characterController;
+    private int deathCounter;
 
     private void Start()
     {
@@ -43,6 +44,9 @@ public class Reset : MonoBehaviour
 
     public void Die()
     {
+        deathCounter = PlayerPrefs.GetInt("deathCounter");
+        PlayerPrefs.SetInt("deathCounter", deathCounter+1);
+        Debug.Log(deathCounter+1);
         StartCoroutine(WaitForAnimation(animator));
     }
 

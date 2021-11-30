@@ -226,14 +226,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6543aea411c1afe4cbd667ab9cad2d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableRadius: 18
-  interactRadius: 0.75
-  interactType: 6
+  interactableRadius: 10
+  interactRadius: 1.5
+  interactType: 4
   keypad: {fileID: 0}
   parent: {fileID: 2219886298104112909}
   sound: {fileID: 0}
   noteMessage: {fileID: 0}
-  doorIsBlocked: 0
 --- !u!1 &5355599212294864275
 GameObject:
   m_ObjectHideFlags: 0

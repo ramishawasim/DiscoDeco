@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7468990121467703777}
   - component: {fileID: 2710511179772701395}
   - component: {fileID: 4620076696397826653}
-  - component: {fileID: 5613070986588198546}
+  - component: {fileID: 8784937201676003348}
   m_Layer: 0
   m_Name: InteractableBase
   m_TagString: Untagged
@@ -97,7 +97,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5613070986588198546
+--- !u!114 &8784937201676003348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,12 +106,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8860573009999598832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6543aea411c1afe4cbd667ab9cad2d65, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bac9cb4fccaa244ba66c2d4e722683e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 10
-  interactRadius: 0.1
-  interactType: 1
+  interactRadius: 1.5
+  interactType: 2
   keypad: {fileID: 0}
   parent: {fileID: 0}
-  doorIsBlocked: 0
+  sound: {fileID: 0}
+  noteMessage: {fileID: 0}
