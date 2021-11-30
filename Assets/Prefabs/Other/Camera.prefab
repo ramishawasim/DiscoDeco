@@ -496,6 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCameraSpeed: 150
+  constantCameraSpeed: -100
   camera: {fileID: 670451538451322002}
 --- !u!1 &670451538462841766
 GameObject:
