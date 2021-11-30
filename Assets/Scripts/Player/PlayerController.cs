@@ -53,13 +53,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isDancing = PlayerPrefs.GetInt("isDancing");
-        if (isDancing == 1)
+        isHolding = PlayerPrefs.GetInt("isHolding");
+        if (isDancing == 1 && isHolding == 0)
         {
             playerSpeed = 0;
         }
-
-        isHolding = PlayerPrefs.GetInt("isHolding");
-        if (isHolding == 1)
+        else if (isHolding == 1)
         {
             playerSpeed = slowSpeed;
         }
