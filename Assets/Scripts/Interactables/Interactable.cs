@@ -70,6 +70,7 @@ public class Interactable : MonoBehaviour
     {
         if (hasInteracted == false)
         {
+            glowMaterial.SetFloat("_DitherAlpha", 0);
             //Within a specific range, activate interactable glow
             Collider[] interactableColliders = Physics.OverlapSphere(transform.position, interactableRadius);
             foreach (var interactableCollider in interactableColliders)
