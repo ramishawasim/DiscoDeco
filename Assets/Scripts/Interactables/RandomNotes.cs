@@ -8,7 +8,7 @@ public class RandomNotes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        random_int = Random.Range(0,9);
+        random_int = Random.Range(0,10);
         this.transform.Find($"KeypadNote {random_int}").gameObject.SetActive(true);
     }
 }
