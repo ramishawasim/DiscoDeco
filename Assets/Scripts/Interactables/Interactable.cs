@@ -145,11 +145,15 @@ public class Interactable : MonoBehaviour
 
     void closeDoor()
     {
-        sound.Play();
-        parent.transform.Find("pivot").gameObject.SetActive(false);
-        parent.transform.Find("original").gameObject.SetActive(true);
-        doorIsClosed = true;
-        hasInteracted = false;
+        doorIsBlocked = parent.GetComponent<IsDoorBlocked>().doorIsBlocked;
+        if (!doorIsBlocked && !parent.transform.Find("blockChair").gameObject.activeSelf)
+        {
+            sound.Play();
+            parent.transform.Find("pivot").gameObject.SetActive(false);
+            parent.transform.Find("original").gameObject.SetActive(true);
+            doorIsClosed = true;
+            hasInteracted = false;
+        }
     }
 
     void pickUpNote()
@@ -197,9 +201,12 @@ public class Interactable : MonoBehaviour
 
     void hide()
     {
-        isHiding = PlayerPrefs.GetInt("isHiding");
         isHolding = PlayerPrefs.GetInt("isHolding");
-        if (isHiding == 0 && isHolding == 0)
+        if (isHolding == 1)
+        {
+            hasInteracted = false;
+        }
+        else if (isHolding == 0)
         {
             playerController.enabled = false;
             characterController.enabled = false;
@@ -209,6 +216,7 @@ public class Interactable : MonoBehaviour
             Quaternion inStandR = parent.transform.Find("insidePlacement").gameObject.transform.rotation;
             player.transform.position = inStandP;
             player.transform.rotation = inStandR;
+            PlayerPrefs.SetInt("isHiding", 1);
             player.tag = "Hide";
 
             if (Input.GetKeyDown(KeyCode.E))
@@ -219,6 +227,7 @@ public class Interactable : MonoBehaviour
                 player.tag = "Player";
                 playerController.enabled = true;
                 characterController.enabled = true;
+                PlayerPrefs.SetInt("isHiding", 0);
 
                 hasInteracted = false;
             }
