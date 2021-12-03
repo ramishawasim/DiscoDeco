@@ -35,7 +35,6 @@ public class Wander : State
     public override void Update()
     {
         base.Update();
-        Debug.Log("Wandering");
 
         if (IsFacingDoor() && GetDistanceFromDoor() < 2f)
         {

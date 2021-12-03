@@ -32,16 +32,11 @@ public class Break : State
         agent.speed = 0;
         startedBreaking = Time.time;
         delay = Random.Range(3f, 5f);
-        Debug.Log("entering " + Time.time);
     }
 
     public override void Update()
     {
         base.Update();
-
-        Debug.Log("Breaking");
-
-        Debug.Log(Time.time + " " + startedBreaking + " " + delay);
 
         enemyAudioManager.PlayMooSound();
 

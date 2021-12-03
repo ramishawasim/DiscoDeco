@@ -16,7 +16,6 @@ public class BackFieldOfView : MonoBehaviour
 
     public bool canSeePlayer;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
@@ -52,12 +51,10 @@ public class BackFieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position + Vector3.up, directionToTarget, distanceToTarget, obstructionMask))
                 {
-                    Debug.Log(1);
                     canSeePlayer = true;
                 }
                 else
                 {
-                    Debug.Log(2);
                     canSeePlayer = false;
                 }
             }
@@ -68,7 +65,6 @@ public class BackFieldOfView : MonoBehaviour
         }
         else if (canSeePlayer)
         {
-            Debug.Log(4);
             canSeePlayer = false;
         }
     }
