@@ -10,6 +10,13 @@ public class DeathCounterText : MonoBehaviour
     void Start()
     {
         deathCounter = PlayerPrefs.GetInt("deathCounter");
-        this.GetComponent<TMP_Text>().text = $"You Died {deathCounter} Times!";
+        if (deathCounter == 0)
+        {
+            this.GetComponent<TMP_Text>().text = $"You got away from Beef Daddy this time...";
+        }
+        else
+        {
+            this.GetComponent<TMP_Text>().text = $"You got captured {deathCounter} time(s)...";
+        }
     }
 }
