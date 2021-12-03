@@ -63,6 +63,7 @@ public class DoorStateHandler : MonoBehaviour
                 GameObject blockChair = child.gameObject;
                 blockChair.SetActive(false);
                 door.transform.parent.parent.GetComponent<IsDoorBlocked>().doorIsBlocked = false;
+                door.transform.parent.parent.transform.Find("InteractableBase").gameObject.SetActive(true);
 
                 break;
             }
