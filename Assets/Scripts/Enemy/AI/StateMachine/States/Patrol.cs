@@ -69,7 +69,7 @@ public class Patrol : State
 
     public override void Exit()
     {
-        // anim.SetBool("onWalk", false);
+        anim.SetBool("onWalk", false);
         agent.speed = 0;
         agent.isStopped = true;
         base.Exit();
