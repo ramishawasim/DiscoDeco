@@ -9,12 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Final/MainMenu.unity
     guid: 5b30602a708f942c0bc2550739424f98
   - enabled: 1
-<<<<<<< HEAD
-=======
+
     path: Assets/Scenes/Final/Rules.unity
     guid: 1ed41c1ea67b740d39c6eedad2a53d57
   - enabled: 1
->>>>>>> 0c07f9312f08cbf4224fa5e5b2f246e544c9271f
+0c07f9312f08cbf4224fa5e5b2f246e544c9271f
     path: Assets/Scenes/Intro.unity
     guid: ec4fbd49e3d304c4d887cbcf602528a7
   - enabled: 1
