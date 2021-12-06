@@ -14,7 +14,7 @@ public class Pursue : State
     public override void Enter()
     {
         anim.SetBool("onWalk", true);
-        agent.speed = 6.5f;
+        agent.speed = 6.4f;
         agent.isStopped = false;
         base.Enter();
     }
