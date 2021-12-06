@@ -66,8 +66,8 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.02
-    m_NormalBias: 0.1
+    m_Bias: 2
+    m_NormalBias: 1
     m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
@@ -210,6 +210,7 @@ MonoBehaviour:
   animator: {fileID: 3322768161755167626}
   movementControl: {fileID: -4587934143170127401, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
   jumpControl: {fileID: -3589842511284467399, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
+  playerSpeed: 0
   gravityValue: -35
   rotationSpeed: 5
 --- !u!114 &5342110511232830350
