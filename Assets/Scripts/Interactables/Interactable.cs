@@ -139,8 +139,8 @@ public class Interactable : MonoBehaviour
             parent.transform.Find("original").gameObject.SetActive(false);
             parent.transform.Find("pivot").gameObject.SetActive(true);
             doorIsClosed = false;
-            hasInteracted = false;
         }
+        hasInteracted = false;
     }
 
     void closeDoor()
@@ -152,8 +152,8 @@ public class Interactable : MonoBehaviour
             parent.transform.Find("pivot").gameObject.SetActive(false);
             parent.transform.Find("original").gameObject.SetActive(true);
             doorIsClosed = true;
-            hasInteracted = false;
         }
+        hasInteracted = false;
     }
 
     void pickUpNote()
