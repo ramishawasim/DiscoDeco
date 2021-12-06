@@ -49,9 +49,13 @@ public class DoorStateHandler : MonoBehaviour
     public void OpenDoor()
     {
         if (door == null) return;
+        
 
         Interactable interactable = door.GetComponentInChildren<Interactable>();
-        interactable.openDoor();
+        if (interactable.doorIsClosed)
+        {
+            interactable.openDoor();
+        }
     }
 
     public void BreakChairBlockingDoor()
