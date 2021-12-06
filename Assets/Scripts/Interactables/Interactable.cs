@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
     public GameObject keypad;
     public GameObject parent;
     public AudioSource sound;
+    public bool doorIsClosed;
 
     private Material glowMaterial;
     private Color glowColour;
@@ -28,7 +29,6 @@ public class Interactable : MonoBehaviour
     private bool hasInteracted;
     private int isHolding;
     private int isHiding;
-    private bool doorIsClosed;
     private bool doorIsBlocked;
     private int notes;
     private int isDead;
