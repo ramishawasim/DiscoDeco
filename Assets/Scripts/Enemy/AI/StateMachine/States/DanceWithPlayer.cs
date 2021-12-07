@@ -7,7 +7,8 @@ public class DanceWithPlayer : State
 {
 
     private float delay;
-    private float timeStartedDancing;
+    private bool check;
+    private float timePlayerStoppedDancing;
 
     public DanceWithPlayer(GameObject npc, NavMeshAgent agent, Animator anim, Transform player, EnemyAudioManager enemyAudioManager) : base(npc, agent, anim, player, enemyAudioManager)
     {
@@ -18,18 +19,32 @@ public class DanceWithPlayer : State
     {
         base.Enter();
         anim.SetTrigger("onDance");
-        delay = Random.Range(0.10f, 0.15f);
-        timeStartedDancing = Time.time;
+        delay = Random.Range(0.10f, 0.20f);
+        check = false;
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (PlayerPrefs.GetInt("isDancing") == 0 && Time.time - timeStartedDancing > delay)
+        if (Vector3.Distance(npc.transform.position, player.position) < 1f)
         {
-            nextState = new Pursue(npc, agent, anim, player, enemyAudioManager);
+            nextState = new Attack(npc, agent, anim, player, enemyAudioManager);
             base.Exit();
+        }
+
+        if (PlayerPrefs.GetInt("isDancing") == 0)
+        {
+            if (!check)
+            {
+                check = true;
+                timePlayerStoppedDancing = Time.time;
+            }
+            else if (check && Time.time - timePlayerStoppedDancing > delay)
+            {
+                nextState = new Pursue(npc, agent, anim, player, enemyAudioManager);
+                base.Exit();
+            }
         }
     }
 
