@@ -22,37 +22,12 @@ public class WaypointManager : MonoBehaviour
     private GameObject[] waypoints;
     private int currentWaypointIndex;
 
-    // Start is called before the first frame update
     public void Init()
     {
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
         currentWaypointIndex = -1;
-        // foreach (GameObject waypoint in waypoints)
-        // {
-        //     // Debug.Log(waypoint.name);
-        // }
-
-        // isDebugging = GameObject.FindGameObjectWithTag("Debug").GetComponent<IsDebug>();
-
-        // graph = new Graph();
-
-        // if (waypoints.Length > 0)
-        // {
-        //     foreach (GameObject waypoint in waypoints)
-        //     {
-        //         graph.AddNode(waypoint);
-        //     }
-
-        //     foreach (Link link in links)
-        //     {
-        //         graph.AddEdge(link.node1, link.node2);
-        //         graph.AddEdge(link.node2, link.node1);
-
-        //     }
-        // }
     }
 
-    // Update is called once per frame
 
     public Transform GetNextWaypoint()
     {
