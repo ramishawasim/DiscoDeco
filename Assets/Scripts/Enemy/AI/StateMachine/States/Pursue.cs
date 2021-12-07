@@ -14,7 +14,7 @@ public class Pursue : State
     public override void Enter()
     {
         anim.SetBool("onWalk", true);
-        agent.speed = 6.75f;
+        agent.speed = 6.4f;
         agent.isStopped = false;
         base.Enter();
     }
@@ -24,8 +24,6 @@ public class Pursue : State
         base.Update();
 
         enemyAudioManager.PlayMooSound();
-
-        Debug.Log("Pursing");
 
         if (IsFacingDoor() && GetDistanceFromDoor() < 2f)
         {
@@ -43,6 +41,12 @@ public class Pursue : State
         if (!IsPlayerBehind() || !CanSeePlayer())
         {
             playerLastKnownPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        }
+
+        if (CanDance())
+        {
+            nextState = new DanceWithPlayer(npc, agent, anim, player, enemyAudioManager);
+            base.Exit();
         }
 
         agent.SetDestination(player.position);
@@ -69,6 +73,7 @@ public class Pursue : State
 
     public override void Exit()
     {
+        anim.SetBool("onWalk", false);
         agent.speed = 0;
         agent.isStopped = true;
         base.Exit();

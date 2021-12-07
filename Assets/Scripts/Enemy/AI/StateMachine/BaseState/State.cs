@@ -22,13 +22,13 @@ public class State
     private FieldOfView fov;
     private BackFieldOfView bfov;
     private DoorStateHandler doorStateHandler;
+    private InsideDanceFloor insideDanceFloor;
 
 
 
 
     public State(GameObject npc, NavMeshAgent agent, Animator anim, Transform player, EnemyAudioManager enemyAudioManager)
     {
-        Debug.Log(name);
         this.npc = npc;
         this.agent = agent;
         this.anim = anim;
@@ -38,11 +38,10 @@ public class State
         fov = this.npc.GetComponent<FieldOfView>();
         bfov = this.npc.GetComponent<BackFieldOfView>();
         doorStateHandler = this.npc.GetComponent<DoorStateHandler>();
-
-        // enemyAudioManager = this.npc.GetComponent<EnemyAudioManager>(); 
+        insideDanceFloor = this.npc.GetComponent<InsideDanceFloor>();
     }
 
-    public virtual void Enter() { stage = EVENT.UPDATE; }
+    public virtual void Enter() { stage = EVENT.UPDATE; Debug.Log(name + " " + Time.time); }
     public virtual void Update()
     {
         stage = EVENT.UPDATE;
@@ -95,6 +94,11 @@ public class State
     public float GetDistanceFromDoor()
     {
         return doorStateHandler.DistanceFromDoor();
+    }
+
+    public bool CanDance()
+    {
+        return insideDanceFloor.CanDance();
     }
 
     public void PlayBreakingSound()

@@ -1374,6 +1374,7 @@ GameObject:
   - component: {fileID: 7061711299315066880}
   - component: {fileID: 7783166386134342778}
   - component: {fileID: 7783166386134342779}
+  - component: {fileID: 6690483838026537084}
   m_Layer: 0
   m_Name: Enemy v4
   m_TagString: Untagged
@@ -1505,6 +1506,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 750caa4968454474a803f31e52f50c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6690483838026537084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783166386134342660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea46a4e58b2577f41b8b4d053e792ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7783166386485567566
