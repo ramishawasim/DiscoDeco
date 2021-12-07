@@ -30,7 +30,7 @@ public class Dance : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
-        if (hasInteracted == false)
+        if (hasInteracted == false && PlayerPrefs.GetInt("isDead") == 0)
         {
             if (Physics.Raycast(ray, out hit))
             {
