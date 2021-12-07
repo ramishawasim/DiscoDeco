@@ -52,11 +52,12 @@ public class Reset : MonoBehaviour
 
     IEnumerator WaitForAnimation(Animator anim)
     {
+        playerController.enabled = false;
+        characterController.enabled = false;
         PlayerPrefs.SetInt("isDead", 1);
         animator.SetTrigger("onDeath");
         keypad.SetActive(false);
-        playerController.enabled = false;
-        characterController.enabled = false;
+
         // yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
         yield return new WaitForSeconds(1.69f);
         reset();
