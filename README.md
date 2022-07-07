@@ -1,11 +1,10 @@
 # ♡ Beef Daddy ♡ 
 [Game formally named DiscoDeco]
 
-![alt text](https://img.itch.zone/aW1nLzc0NDg1NjEucG5n/original/Sxo9Uw.png)
-
 Escape the disco deco styled room in the game ♡ Beef Daddy ♡ before you get caught!
-
 Find the game here: https://cvu232.itch.io/beef-daddy
+
+![alt text](https://img.itch.zone/aW1nLzc0NDg1NjEucG5n/original/Sxo9Uw.png)
 
 ## Description
 
