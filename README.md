@@ -1,12 +1,15 @@
-# DiscoDeco
+# ♡ Beef Daddy ♡ 
+[Game formally named DiscoDeco]
 
-Escape this Disco Deco styled room before you get caught!
+![alt text](https://img.itch.zone/aW1nLzc0NDg1NjEucG5n/original/Sxo9Uw.png)
 
-<!-- Find it here: https://cvu232.itch.io/quack -->
+Escape the disco deco styled room in the game ♡ Beef Daddy ♡ before you get caught!
+
+Find the game here: https://cvu232.itch.io/beef-daddy
 
 ## Description
 
-Code-base for DiscoDeco - A 3D platformer made using the Unity Engine.
+Code-base for Beef Daddy - A 3D platformer made using the Unity Engine.
 
 Project 3 - DATT4300 (Fall 2021)
 
