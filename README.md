@@ -9,9 +9,23 @@ Find the game here: https://cvu232.itch.io/beef-daddy
 
 ## Description
 
-Code-base for Beef Daddy - A 3D platformer made using the Unity Engine.
+Welcome to the Disco. Although, you might have gone to the wrong one. Ah. Oh no. The door's locked... Hey, do you hear something?
 
-Project 3 - DATT4300 (Fall 2021)
+Code-base for ♡ Beef Daddy ♡ - A 3D platformer made using the Unity Engine.
+
+### Controls:
+
+[WASD] - Move around
+
+[E] - Interact with surrounding objects/Dance!!
+
+[F] - Chair interactions
+
+Mouse Click - Camera movement
+
+### Gameplay:
+
+Run around the place and try to escape! Avoid being caught and find the code to unlock the door.
 
 ## Getting Started
 
